@@ -34,10 +34,12 @@
         /* --- HEADER --- */
         header {
             background: white;
-            padding: 0 2rem;
-            height: 60px;
+            /* HAUT : 15px exactement. GAUCHE/DROITE : 2rem. BAS : 15px pour équilibrer */
+            padding: 15px 2rem;
+            /* height: 60px;  <-- ON SUPPRIME LA HAUTEUR FIXE */
             display: flex;
             align-items: center;
+            /* Centre le bouton retour verticalement */
             justify-content: space-between;
             border-bottom: 1px solid #e2e8f0;
             flex-shrink: 0;
