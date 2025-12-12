@@ -35,7 +35,6 @@
         header {
             background: white;
             padding: 15px 2rem;
-            /* Alignement précis */
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -50,7 +49,6 @@
             text-decoration: none;
             display: flex;
             align-items: flex-end;
-            /* Aligne le texte en bas de l'image */
             gap: 12px;
             line-height: 1;
         }
@@ -63,13 +61,14 @@
 
         .back-btn {
             display: none;
+            /* Caché par défaut */
             padding: 8px 16px;
             background-color: #eff6ff;
             color: var(--primary);
-            border: none;
+            text-decoration: none;
+            /* Important pour le lien */
             border-radius: 6px;
             font-weight: 600;
-            cursor: pointer;
             font-size: 0.9rem;
         }
 
@@ -120,7 +119,8 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
+            /* Un peu plus large pour 4 cartes */
             padding-bottom: 40px;
         }
 
@@ -134,7 +134,8 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            height: 340px;
+            height: 360px;
+            /* Un peu plus haut pour le contenu */
         }
 
         .card:hover {
@@ -219,11 +220,11 @@
 <body>
 
     <header>
-        <a href="javascript:void(0);" onclick="goHome()" class="logo">
+        <a href="#" class="logo">
             <img src="logo.png" alt="Logo IA Droits" class="logo-img">
             <span>Comprendre Mes Droits</span>
         </a>
-        <button id="back-btn" class="back-btn" onclick="goHome()">⬅️ Retour</button>
+        <a id="back-btn" class="back-btn" href="#">⬅️ Retour</a>
     </header>
 
     <div id="home-view">
@@ -232,17 +233,17 @@
             <p>
                 L'IA générative (comme ChatGPT) ne connaît pas toutes les subtilités administratives françaises.
                 Souvent, elle se contente de chercher une information sur Internet et vous la rend sans filtre,
-                voire <strong>invente des chiffres</strong> pour ne pas vous laisser sans réponse.
+                voire <strong>invente des chiffres</strong>.
                 <br><br>
                 Nos assistants experts analysent votre situation uniquement sur la base des <span
-                    class="highlight">textes officiels 2025</span> (Code des Impôts, URSSAF) pour vous garantir des
-                réponses fiables, sourcées et sans jargon.
+                    class="highlight">textes officiels 2025</span> (Code des Impôts, URSSAF, CAF) pour vous garantir des
+                réponses fiables et sourcées.
             </p>
         </div>
 
         <div class="cards-container">
 
-            <div class="card" onclick="openApp('paie')">
+            <div class="card" onclick="window.location.hash='paie'">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
                 </div>
@@ -254,7 +255,7 @@
                 </div>
             </div>
 
-            <div class="card" onclick="openApp('impots')">
+            <div class="card" onclick="window.location.hash='impots'">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
                 </div>
@@ -265,6 +266,18 @@
                 </div>
             </div>
 
+            <div class="card" onclick="window.location.hash='caf'">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ Barèmes CAF 2025</span>
+                    <h3>Mes Aides Sociales</h3>
+                    <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles en
+                        vigueur.</p>
+                </div>
+            </div>
+
             <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
@@ -272,7 +285,7 @@
                 <div class="card-content">
                     <span class="badge" style="background-color: #f1f5f9; color: #64748b;">🚧 En construction</span>
                     <h3>Ma Retraite</h3>
-                    <p>L'assistant pour estimer vos droits, comprendre vos trimestres et votre date de départ.</p>
+                    <p>L'assistant pour estimer vos droits est en pause en attendant la stabilisation de la réforme.</p>
                 </div>
             </div>
 
@@ -284,28 +297,52 @@
     </div>
 
     <script>
-        // ⚠️ VOS LIENS STREAMLIT ICI
+        // --- CONFIGURATION ---
+        // J'ai ajouté l'URL de la CAF ici, avec ?embed=true pour masquer la barre Streamlit
         const apps = {
             'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
-            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true'
+            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
+            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true'
         };
 
-        function openApp(key) {
-            const url = apps[key];
-            if (!url) return;
+        // --- LE CŒUR DU SYSTÈME (ROUTER) ---
+        function handleLocationChange() {
+            const hash = window.location.hash.slice(1); // Enlève le #
 
-            document.getElementById('app-frame').src = url;
+            if (apps[hash]) {
+                showAppView(hash);
+            } else {
+                showHomeView();
+            }
+        }
+
+        function showHomeView() {
+            document.getElementById('app-frame').src = "about:blank"; // Stop l'app
+            document.getElementById('app-view').style.display = 'none';
+            document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('home-view').style.display = 'flex';
+            document.querySelector('.logo').setAttribute('href', '#'); // Logo retourne accueil
+        }
+
+        function showAppView(appName) {
+            const url = apps[appName];
+            const frame = document.getElementById('app-frame');
+
+            // On ne recharge l'iframe que si l'URL a changé (évite le clignotement)
+            if (frame.src !== url) {
+                frame.src = url;
+            }
+
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'block'; // Affiche le bouton retour
+            document.querySelector('.logo').setAttribute('href', '#');
         }
 
-        function goHome() {
-            document.getElementById('app-frame').src = "";
-            document.getElementById('app-view').style.display = 'none';
-            document.getElementById('home-view').style.display = 'flex';
-            document.getElementById('back-btn').style.display = 'none';
-        }
+        // --- INITIALISATION ---
+        window.addEventListener('hashchange', handleLocationChange);
+        handleLocationChange(); // Vérifie l'URL au chargement de la page
+
     </script>
 </body>
 
