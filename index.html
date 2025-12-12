@@ -47,12 +47,17 @@
 
         .logo {
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            /* Un poil plus gros pour l'impact */
             color: var(--text-main);
             text-decoration: none;
             display: flex;
-            align-items: center;
-            gap: 8px;
+            /* C'EST ICI LA CLÉ : Aligne le texte en bas de l'image */
+            align-items: flex-end;
+            gap: 12px;
+            /* Un peu plus d'espace entre logo et texte */
+            line-height: 1;
+            /* Important pour que le texte "touche" le bas */
         }
 
         .back-btn {
