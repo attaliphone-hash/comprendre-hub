@@ -11,11 +11,12 @@
         /* --- DESIGN SYSTEM --- */
         :root {
             --bg-color: #f8fafc;
-            /* Gris très clair, presque blanc */
             --text-main: #1e293b;
             --text-soft: #64748b;
             --card-bg: #ffffff;
             --primary: #2563eb;
+            --success: #16a34a;
+            /* Vert pour la validation */
         }
 
         body {
@@ -54,7 +55,6 @@
 
         .back-btn {
             display: none;
-            /* Caché sur l'accueil */
             padding: 8px 16px;
             background-color: #eff6ff;
             color: var(--primary);
@@ -74,7 +74,6 @@
             flex: 1;
             padding: 2rem;
             overflow-y: auto;
-            /* Permet de scroller si l'écran est petit */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -83,28 +82,41 @@
         .hero-section {
             text-align: center;
             margin-bottom: 3rem;
-            max-width: 600px;
+            max-width: 700px;
+            /* Un peu plus large pour le texte */
             margin-top: 2rem;
         }
 
+        /* Le nouveau titre percutant */
         .hero-section h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin: 0 0 1rem 0;
             letter-spacing: -1px;
+            line-height: 1.2;
         }
 
+        /* Le paragraphe "Pourquoi nous ?" */
         .hero-section p {
             color: var(--text-soft);
-            font-size: 1.1rem;
-            line-height: 1.5;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Mise en gras des mots clés */
+        .highlight {
+            color: var(--text-main);
+            font-weight: 600;
+            background-color: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
         }
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             padding-bottom: 40px;
         }
 
@@ -118,8 +130,7 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            height: 320px;
-            /* Hauteur fixe pour uniformiser */
+            height: 340px;
         }
 
         .card:hover {
@@ -129,9 +140,8 @@
         }
 
         .card-image {
-            height: 180px;
+            height: 160px;
             background-color: #cbd5e1;
-            /* Gris si l'image charge pas */
             background-size: cover;
             background-position: center;
         }
@@ -141,15 +151,24 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
-        .tag {
-            font-size: 0.7rem;
+        /* Les nouveaux badges de confiance */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
             text-transform: uppercase;
             font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            color: var(--success);
+            /* Vert */
+            background-color: #dcfce7;
+            /* Fond vert très clair */
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            align-self: flex-start;
             letter-spacing: 0.5px;
         }
 
@@ -161,11 +180,11 @@
         .card p {
             margin: 0;
             color: var(--text-soft);
-            font-size: 0.9rem;
-            line-height: 1.4;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        /* --- IFRAME (APPLICATION) --- */
+        /* --- IFRAME --- */
         #app-view {
             display: none;
             flex: 1;
@@ -182,11 +201,15 @@
         /* Mobile */
         @media (max-width: 600px) {
             .hero-section h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .cards-container {
                 grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 0 1rem;
             }
         }
     </style>
@@ -201,9 +224,10 @@
 
     <div id="home-view">
         <div class="hero-section">
-            <h1>Vos Droits, Simplifiés.</h1>
-            <p>Une suite d'assistants intelligents pour décrypter l'administratif français. Sélectionnez un outil pour
-                commencer.</p>
+            <h1>Ne laissez pas une IA générique<br>deviner vos droits.</h1>
+            <p>ChatGPT ne connaît pas toutes les subtilités françaises. Nos assistants analysent votre situation
+                uniquement sur la base des <span class="highlight">textes officiels 2025</span> (Code des Impôts,
+                URSSAF) pour vous garantir des réponses fiables, sourcées et sans jargon.</p>
         </div>
 
         <div class="cards-container">
@@ -213,9 +237,10 @@
                     style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="tag">SALARIÉS</span>
+                    <span class="badge">✅ Vérifié URSSAF 2025</span>
                     <h3>Ma Paie Expliquée</h3>
-                    <p>Comprenez enfin votre bulletin : brut, net, cotisations et prélèvement à la source.</p>
+                    <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
+                        source.</p>
                 </div>
             </div>
 
@@ -224,20 +249,20 @@
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="tag">FISCALITÉ</span>
+                    <span class="badge">✅ Source DGFiP 2025</span>
                     <h3>Mes Impôts 2025</h3>
-                    <p>Décryptez votre avis d'imposition, calculez vos parts et vérifiez vos réductions.</p>
+                    <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
                 </div>
             </div>
 
-            <div class="card" style="opacity: 0.5; cursor: default;">
+            <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
                 <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80');">
+                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
                 </div>
                 <div class="card-content">
-                    <span class="tag">À VENIR</span>
+                    <span class="badge" style="background-color: #f1f5f9; color: #64748b;">🚧 En construction</span>
                     <h3>Ma Retraite</h3>
-                    <p>L'assistant pour estimer vos droits et comprendre vos trimestres.</p>
+                    <p>L'assistant pour estimer vos droits, comprendre vos trimestres et votre date de départ.</p>
                 </div>
             </div>
 
@@ -249,7 +274,7 @@
     </div>
 
     <script>
-        // ⚠️ VOS LIENS ICI (Vérifiez qu'ils sont corrects)
+        // ⚠️ VOS LIENS STREAMLIT ICI
         const apps = {
             'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
             'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true'
@@ -266,7 +291,7 @@
         }
 
         function goHome() {
-            document.getElementById('app-frame').src = ""; // Stop l'app
+            document.getElementById('app-frame').src = "";
             document.getElementById('app-view').style.display = 'none';
             document.getElementById('home-view').style.display = 'flex';
             document.getElementById('back-btn').style.display = 'none';
