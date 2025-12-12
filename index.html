@@ -34,12 +34,10 @@
         /* --- HEADER --- */
         header {
             background: white;
-            /* HAUT : 15px exactement. GAUCHE/DROITE : 2rem. BAS : 15px pour équilibrer */
             padding: 15px 2rem;
-            /* height: 60px;  <-- ON SUPPRIME LA HAUTEUR FIXE */
+            /* Alignement précis */
             display: flex;
             align-items: center;
-            /* Centre le bouton retour verticalement */
             justify-content: space-between;
             border-bottom: 1px solid #e2e8f0;
             flex-shrink: 0;
@@ -48,16 +46,19 @@
         .logo {
             font-weight: 800;
             font-size: 1.2rem;
-            /* Un poil plus gros pour l'impact */
             color: var(--text-main);
             text-decoration: none;
             display: flex;
-            /* C'EST ICI LA CLÉ : Aligne le texte en bas de l'image */
             align-items: flex-end;
+            /* Aligne le texte en bas de l'image */
             gap: 12px;
-            /* Un peu plus d'espace entre logo et texte */
             line-height: 1;
-            /* Important pour que le texte "touche" le bas */
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
         }
 
         .back-btn {
@@ -90,11 +91,9 @@
             text-align: center;
             margin-bottom: 3rem;
             max-width: 700px;
-            /* Un peu plus large pour le texte */
             margin-top: 2rem;
         }
 
-        /* Le nouveau titre percutant */
         .hero-section h1 {
             font-size: 2.2rem;
             margin: 0 0 1rem 0;
@@ -102,14 +101,12 @@
             line-height: 1.2;
         }
 
-        /* Le paragraphe "Pourquoi nous ?" */
         .hero-section p {
             color: var(--text-soft);
             font-size: 1.05rem;
             line-height: 1.6;
         }
 
-        /* Mise en gras des mots clés */
         .highlight {
             color: var(--text-main);
             font-weight: 600;
@@ -161,7 +158,6 @@
             justify-content: flex-start;
         }
 
-        /* Les nouveaux badges de confiance */
         .badge {
             display: inline-flex;
             align-items: center;
@@ -169,9 +165,7 @@
             text-transform: uppercase;
             font-weight: 700;
             color: var(--success);
-            /* Vert */
             background-color: #dcfce7;
-            /* Fond vert très clair */
             padding: 4px 8px;
             border-radius: 4px;
             margin-bottom: 0.8rem;
@@ -216,7 +210,7 @@
             }
 
             header {
-                padding: 0 1rem;
+                padding: 15px 1rem;
             }
         }
     </style>
@@ -225,7 +219,7 @@
 <body>
 
     <header>
-        <a href="javascript:void(0);"" onclick=" goHome()" class="logo">
+        <a href="javascript:void(0);" onclick="goHome()" class="logo">
             <img src="logo.png" alt="Logo IA Droits" class="logo-img">
             <span>Comprendre Mes Droits</span>
         </a>
@@ -234,19 +228,16 @@
 
     <div id="home-view">
         <div class="hero-section">
-            <div class="hero-section">
-                <h1>Ne laissez pas une IA générique<br>deviner vos droits.</h1>
-                <p>
-                    L'IA générative (comme ChatGPT) ne connaît pas toutes les subtilités administratives françaises.
-                    Souvent, elle se contente de chercher une information sur Internet et vous la rend sans filtre,
-                    voire <strong>invente des chiffres</strong> pour ne pas vous laisser sans réponse.
-                    <br><br>
-                    Nos assistants experts analysent votre situation uniquement sur la base des <span
-                        class="highlight">textes
-                        officiels 2025</span> (Code des Impôts, URSSAF) pour vous garantir des réponses fiables,
-                    sourcées et sans jargon.
-                </p>
-            </div>
+            <h1>Ne laissez pas une IA générique<br>deviner vos droits.</h1>
+            <p>
+                L'IA générative (comme ChatGPT) ne connaît pas toutes les subtilités administratives françaises.
+                Souvent, elle se contente de chercher une information sur Internet et vous la rend sans filtre,
+                voire <strong>invente des chiffres</strong> pour ne pas vous laisser sans réponse.
+                <br><br>
+                Nos assistants experts analysent votre situation uniquement sur la base des <span
+                    class="highlight">textes officiels 2025</span> (Code des Impôts, URSSAF) pour vous garantir des
+                réponses fiables, sourcées et sans jargon.
+            </p>
         </div>
 
         <div class="cards-container">
