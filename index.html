@@ -8,12 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
+        /* --- DESIGN SYSTEM --- */
         :root {
-            --bg-color: #f4f6f9;
-            --text-color: #1a202c;
+            --bg-color: #f8fafc;
+            /* Gris très clair, presque blanc */
+            --text-main: #1e293b;
+            --text-soft: #64748b;
             --card-bg: #ffffff;
             --primary: #2563eb;
-            /* Bleu moderne */
         }
 
         body {
@@ -21,30 +23,29 @@
             padding: 0;
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             height: 100vh;
-            overflow: hidden;
-            /* Pour gérer le scroll dans les iframes */
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         /* --- HEADER --- */
         header {
             background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 0 2rem;
+            height: 60px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            z-index: 10;
-            height: 50px;
+            justify-content: space-between;
+            border-bottom: 1px solid #e2e8f0;
+            flex-shrink: 0;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.2rem;
-            color: #1e293b;
+            font-size: 1.1rem;
+            color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -53,79 +54,84 @@
 
         .back-btn {
             display: none;
-            /* Caché par défaut (sur l'accueil) */
+            /* Caché sur l'accueil */
             padding: 8px 16px;
             background-color: #eff6ff;
             color: var(--primary);
             border: none;
-            border-radius: 50px;
+            border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             font-size: 0.9rem;
-            transition: 0.2s;
         }
 
         .back-btn:hover {
             background-color: #dbeafe;
         }
 
-        /* --- GRID ACCUEIL (Le Look "Blocs") --- */
+        /* --- ACCUEIL (GRILLE) --- */
         #home-view {
             flex: 1;
             padding: 2rem;
             overflow-y: auto;
+            /* Permet de scroller si l'écran est petit */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .hero-text {
+        .hero-section {
             text-align: center;
             margin-bottom: 3rem;
             max-width: 600px;
+            margin-top: 2rem;
         }
 
-        .hero-text h1 {
+        .hero-section h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #0f172a;
+            margin: 0 0 1rem 0;
+            letter-spacing: -1px;
         }
 
-        .hero-text p {
-            color: #64748b;
+        .hero-section p {
+            color: var(--text-soft);
             font-size: 1.1rem;
+            line-height: 1.5;
         }
 
-        .cards-grid {
+        .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 24px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 900px;
+            padding-bottom: 40px;
         }
 
-        /* --- STYLE DES CARTES --- */
+        /* --- CARTES --- */
         .card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
+            height: 320px;
+            /* Hauteur fixe pour uniformiser */
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
             border-color: var(--primary);
         }
 
-        /* Images d'illustration (Unsplash) */
         .card-image {
             height: 180px;
+            background-color: #cbd5e1;
+            /* Gris si l'image charge pas */
             background-size: cover;
             background-position: center;
         }
@@ -133,36 +139,38 @@
         .card-content {
             padding: 1.5rem;
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
+        .tag {
+            font-size: 0.7rem;
             text-transform: uppercase;
-            color: var(--primary);
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
             font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .card h3 {
             margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
         }
 
-        .card-desc {
-            color: #64748b;
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .card p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
-        /* --- VUE APPLICATION (Iframe) --- */
+        /* --- IFRAME (APPLICATION) --- */
         #app-view {
             display: none;
-            /* Caché par défaut */
             flex: 1;
-            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
         iframe {
@@ -171,18 +179,14 @@
             border: none;
         }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 600px) {
-            .hero-text h1 {
-                font-size: 1.8rem;
+            .hero-section h1 {
+                font-size: 2rem;
             }
 
-            .cards-grid {
+            .cards-container {
                 grid-template-columns: 1fr;
-            }
-
-            header {
-                padding: 1rem;
             }
         }
     </style>
@@ -192,16 +196,82 @@
 
     <header>
         <a href="#" onclick="goHome()" class="logo">🏛️ Comprendre...</a>
-        <button id="back-btn" class="back-btn" onclick="goHome()">⬅️ Retour au choix</button>
+        <button id="back-btn" class="back-btn" onclick="goHome()">⬅️ Retour</button>
     </header>
 
     <div id="home-view">
-        <div class="hero-text">
+        <div class="hero-section">
             <h1>Vos Droits, Simplifiés.</h1>
-            <p>Sélectionnez un assistant intelligent pour décrypter vos documents administratifs instantanément.</p>
+            <p>Une suite d'assistants intelligents pour décrypter l'administratif français. Sélectionnez un outil pour
+                commencer.</p>
         </div>
 
-        <div class="cards-grid">
+        <div class="cards-container">
 
             <div class="card" onclick="openApp('paie')">
-                <div class="card-image" style="background-image: url('
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="tag">SALARIÉS</span>
+                    <h3>Ma Paie Expliquée</h3>
+                    <p>Comprenez enfin votre bulletin : brut, net, cotisations et prélèvement à la source.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openApp('impots')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="tag">FISCALITÉ</span>
+                    <h3>Mes Impôts 2025</h3>
+                    <p>Décryptez votre avis d'imposition, calculez vos parts et vérifiez vos réductions.</p>
+                </div>
+            </div>
+
+            <div class="card" style="opacity: 0.5; cursor: default;">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="tag">À VENIR</span>
+                    <h3>Ma Retraite</h3>
+                    <p>L'assistant pour estimer vos droits et comprendre vos trimestres.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="app-view">
+        <iframe id="app-frame" src=""></iframe>
+    </div>
+
+    <script>
+        // ⚠️ VOS LIENS ICI (Vérifiez qu'ils sont corrects)
+        const apps = {
+            'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
+            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true'
+        };
+
+        function openApp(key) {
+            const url = apps[key];
+            if (!url) return;
+
+            document.getElementById('app-frame').src = url;
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('app-view').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'block';
+        }
+
+        function goHome() {
+            document.getElementById('app-frame').src = ""; // Stop l'app
+            document.getElementById('app-view').style.display = 'none';
+            document.getElementById('home-view').style.display = 'flex';
+            document.getElementById('back-btn').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
