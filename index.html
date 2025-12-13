@@ -16,7 +16,6 @@
             --card-bg: #ffffff;
             --primary: #2563eb;
             --success: #16a34a;
-            /* Vert pour la validation */
         }
 
         body {
@@ -59,21 +58,35 @@
             border-radius: 8px;
         }
 
+        /* Nouveau style du bouton retour */
         .back-btn {
             display: none;
-            /* Caché par défaut */
             padding: 8px 16px;
-            background-color: #eff6ff;
-            color: var(--primary);
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            color: var(--text-main);
             text-decoration: none;
-            /* Important pour le lien */
             border-radius: 6px;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.9rem;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
         .back-btn:hover {
-            background-color: #dbeafe;
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        /* Style de la flèche SVG */
+        .back-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
         }
 
         /* --- ACCUEIL (GRILLE) --- */
@@ -134,7 +147,6 @@
             display: flex;
             flex-direction: column;
             height: 380px;
-            /* Hauteur ajustée */
         }
 
         .card:hover {
@@ -219,11 +231,18 @@
 <body>
 
     <header>
-        <a href="#" class="logo">
+        <a href="#" class="logo" onclick="goHome(event)">
             <img src="logo.png" alt="Logo IA Droits" class="logo-img">
             <span>Comprendre Mes Droits</span>
         </a>
-        <a id="back-btn" class="back-btn" href="#">⬅️ Retour</a>
+
+        <a id="back-btn" class="back-btn" href="#" onclick="goHome(event)">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Retour à l'accueil
+        </a>
     </header>
 
     <div id="home-view">
@@ -239,7 +258,7 @@
 
         <div class="cards-container">
 
-            <div class="card" onclick="window.location.hash='paie'">
+            <div class="card" onclick="openApp('paie')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
                 </div>
@@ -251,7 +270,7 @@
                 </div>
             </div>
 
-            <div class="card" onclick="window.location.hash='impots'">
+            <div class="card" onclick="openApp('impots')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
                 </div>
@@ -262,7 +281,7 @@
                 </div>
             </div>
 
-            <div class="card" onclick="window.location.hash='caf'">
+            <div class="card" onclick="openApp('caf')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
                 </div>
@@ -273,7 +292,7 @@
                 </div>
             </div>
 
-            <div class="card" onclick="window.location.hash='chomage'">
+            <div class="card" onclick="openApp('chomage')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
                 </div>
@@ -311,7 +330,24 @@
             'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true'
         };
 
-        // --- ROUTEUR ---
+        // --- NOUVEAU SYSTÈME DE NAVIGATION SANS HASH ---
+
+        // 1. Fonction pour ouvrir une app (ajoute le hash pour l'historique mais pas pour le style)
+        function openApp(appName) {
+            window.location.hash = appName;
+        }
+
+        // 2. Fonction de retour propre (nettoie l'URL)
+        function goHome(event) {
+            if (event) event.preventDefault(); // Empêche le comportement par défaut du lien
+
+            // Nettoie l'URL (enlève le # et le texte après) sans recharger la page
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+
+            showHomeView();
+        }
+
+        // 3. Gestionnaire de changement d'URL (pour que le bouton "Précédent" du navigateur marche quand même)
         function handleLocationChange() {
             const hash = window.location.hash.slice(1); // Enlève le #
 
@@ -325,9 +361,8 @@
         function showHomeView() {
             document.getElementById('app-frame').src = "about:blank";
             document.getElementById('app-view').style.display = 'none';
-            document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('back-btn').style.display = 'none'; // Cache le bouton retour
             document.getElementById('home-view').style.display = 'flex';
-            document.querySelector('.logo').setAttribute('href', '#');
         }
 
         function showAppView(appName) {
@@ -340,11 +375,12 @@
 
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'block';
-            document.querySelector('.logo').setAttribute('href', '#');
+            document.getElementById('back-btn').style.display = 'flex'; // Affiche le bouton en mode Flex
         }
 
         window.addEventListener('hashchange', handleLocationChange);
+
+        // Vérification au chargement initial
         handleLocationChange();
 
     </script>
