@@ -218,4 +218,351 @@
 
         /* --- FOOTER --- */
         footer {
-            width: 10
+            width: 100%;
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 2rem 0;
+            margin-top: auto;
+            /* Pousse le footer en bas */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a,
+        .footer-links button {
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        .footer-links a:hover,
+        .footer-links button:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* --- MODALE MENTIONS LÉGALES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            box-sizing: border-box;
+            /* Important pour éviter le dépassement */
+        }
+
+        .modal {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal h2 {
+            margin-top: 0;
+        }
+
+        .modal h3 {
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .modal p {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-soft);
+        }
+
+        /* --- IFRAME --- */
+        #app-view {
+            display: none;
+            flex: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 15px 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo" onclick="goHome(event)">
+            <img src="logo.png" alt="Logo IA Droits" class="logo-img">
+            <span>Comprendre Mes Droits</span>
+        </a>
+
+        <a id="back-btn" class="back-btn" href="#" onclick="goHome(event)">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Retour à l'accueil
+        </a>
+    </header>
+
+    <div id="home-view">
+        <div class="content-wrapper">
+            <div class="hero-section">
+                <h1>Ne laissez pas une IA générique<br>deviner vos droits.</h1>
+                <p>
+                    L'IA générative classique ne connaît pas toutes les subtilités administratives françaises.
+                    Nos assistants experts analysent votre situation uniquement sur la base des <span
+                        class="highlight">textes officiels 2025</span> (Code du Travail, DGFiP, France Travail) pour
+                    vous garantir des réponses fiables.
+                </p>
+            </div>
+
+            <div class="cards-container">
+
+                <div class="card" onclick="openApp('paie')">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Vérifié URSSAF 2025</span>
+                        <h3>Ma Paie Expliquée</h3>
+                        <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
+                            source.</p>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openApp('impots')">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Source DGFiP 2025</span>
+                        <h3>Mes Impôts 2025</h3>
+                        <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openApp('caf')">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Barèmes CAF 2025</span>
+                        <h3>Mes Aides Sociales</h3>
+                        <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
+                    </div>
+                </div>
+
+                <div class="card" onclick="openApp('chomage')">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Règles France Travail</span>
+                        <h3>Mon Chômage</h3>
+                        <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge" style="background-color: #f1f5f9; color: #64748b;">🚧 En construction</span>
+                        <h3>Ma Retraite</h3>
+                        <p>L'assistant pour estimer vos droits est en pause en attendant la stabilisation de la réforme.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2025 Comprendre Mes Droits. Tous droits réservés.
+                </div>
+                <div class="footer-links">
+                    <button onclick="toggleModal()">Mentions Légales</button>
+                    <a href="mailto:contact@comprendre-mes-droits.fr">Me contacter</a>
+                    <a href="https://www.linkedin.com/in/votre-profil" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="legal-modal" class="modal-overlay" onclick="toggleModal()">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="close-modal" onclick="toggleModal()">&times;</button>
+            <h2>Mentions Légales</h2>
+
+            <h3>Éditeur du site</h3>
+            <p>
+                Ce site est édité à titre personnel par <strong>Sylvain Attal</strong>.<br>
+                Contact : <a href="mailto:contact@comprendre-mes-droits.fr">contact@comprendre-mes-droits.fr</a>
+            </p>
+
+            <h3>Hébergement</h3>
+            <p>
+                Le site est hébergé par <strong>GitHub Pages</strong> (Code source) et <strong>Streamlit Cloud</strong>
+                (Calcul IA).<br>
+                Les données transitent par les serveurs sécurisés de Google Cloud (API Gemini).
+            </p>
+
+            <h3>Propriété Intellectuelle & Responsabilité</h3>
+            <p>
+                Ce site est un projet de démonstration technologique ("Proof of Concept").<br>
+                Bien que basées sur des sources officielles, les informations fournies par l'IA sont données à titre
+                indicatif et ne remplacent pas un avis juridique professionnel ou une décision officielle de
+                l'administration.
+            </p>
+
+            <h3>Données Personnelles</h3>
+            <p>
+                Aucune donnée personnelle nominative n'est conservée par l'éditeur du site.<br>
+                Les conversations avec l'assistant sont anonymes et ne servent qu'à la session en cours.
+            </p>
+        </div>
+    </div>
+
+    <div id="app-view">
+        <iframe id="app-frame" src=""></iframe>
+    </div>
+
+    <script>
+        // --- CONFIGURATION ---
+        const apps = {
+            'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
+            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
+            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
+            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true'
+        };
+
+        // --- NAVIGATION ---
+        function openApp(appName) {
+            window.location.hash = appName;
+        }
+
+        function goHome(event) {
+            if (event) event.preventDefault();
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+            showHomeView();
+        }
+
+        function handleLocationChange() {
+            const hash = window.location.hash.slice(1);
+            if (apps[hash]) {
+                showAppView(hash);
+            } else {
+                showHomeView();
+            }
+        }
+
+        function showHomeView() {
+            document.getElementById('app-frame').src = "about:blank";
+            document.getElementById('app-view').style.display = 'none';
+            document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('home-view').style.display = 'flex';
+        }
+
+        function showAppView(appName) {
+            const url = apps[appName];
+            const frame = document.getElementById('app-frame');
+            if (frame.src !== url) frame.src = url;
+
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('app-view').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'flex';
+        }
+
+        // --- GESTION DE LA MODALE ---
+        function toggleModal() {
+            const modal = document.getElementById('legal-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+            }
+        }
+
+        window.addEventListener('hashchange', handleLocationChange);
+        handleLocationChange();
+
+    </script>
+</body>
+
+</html>
