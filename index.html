@@ -119,8 +119,7 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
             width: 100%;
-            max-width: 1100px;
-            /* Un peu plus large pour 4 cartes */
+            max-width: 1200px;
             padding-bottom: 40px;
         }
 
@@ -134,8 +133,8 @@
             transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            height: 360px;
-            /* Un peu plus haut pour le contenu */
+            height: 380px;
+            /* Hauteur ajustée */
         }
 
         .card:hover {
@@ -231,13 +230,10 @@
         <div class="hero-section">
             <h1>Ne laissez pas une IA générique<br>deviner vos droits.</h1>
             <p>
-                L'IA générative (comme ChatGPT) ne connaît pas toutes les subtilités administratives françaises.
-                Souvent, elle se contente de chercher une information sur Internet et vous la rend sans filtre,
-                voire <strong>invente des chiffres</strong>.
-                <br><br>
+                L'IA générative classique ne connaît pas toutes les subtilités administratives françaises.
                 Nos assistants experts analysent votre situation uniquement sur la base des <span
-                    class="highlight">textes officiels 2025</span> (Code des Impôts, URSSAF, CAF) pour vous garantir des
-                réponses fiables et sourcées.
+                    class="highlight">textes officiels 2025</span> (Code du Travail, DGFiP, France Travail) pour vous
+                garantir des réponses fiables.
             </p>
         </div>
 
@@ -273,8 +269,18 @@
                 <div class="card-content">
                     <span class="badge">✅ Barèmes CAF 2025</span>
                     <h3>Mes Aides Sociales</h3>
-                    <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles en
-                        vigueur.</p>
+                    <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="window.location.hash='chomage'">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ Règles France Travail</span>
+                    <h3>Mon Chômage</h3>
+                    <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.</p>
                 </div>
             </div>
 
@@ -297,15 +303,15 @@
     </div>
 
     <script>
-        // --- CONFIGURATION ---
-        // J'ai ajouté l'URL de la CAF ici, avec ?embed=true pour masquer la barre Streamlit
+        // --- CONFIGURATION DES APPS ---
         const apps = {
             'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
             'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
-            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true'
+            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
+            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true'
         };
 
-        // --- LE CŒUR DU SYSTÈME (ROUTER) ---
+        // --- ROUTEUR ---
         function handleLocationChange() {
             const hash = window.location.hash.slice(1); // Enlève le #
 
@@ -317,31 +323,29 @@
         }
 
         function showHomeView() {
-            document.getElementById('app-frame').src = "about:blank"; // Stop l'app
+            document.getElementById('app-frame').src = "about:blank";
             document.getElementById('app-view').style.display = 'none';
             document.getElementById('back-btn').style.display = 'none';
             document.getElementById('home-view').style.display = 'flex';
-            document.querySelector('.logo').setAttribute('href', '#'); // Logo retourne accueil
+            document.querySelector('.logo').setAttribute('href', '#');
         }
 
         function showAppView(appName) {
             const url = apps[appName];
             const frame = document.getElementById('app-frame');
 
-            // On ne recharge l'iframe que si l'URL a changé (évite le clignotement)
             if (frame.src !== url) {
                 frame.src = url;
             }
 
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'block'; // Affiche le bouton retour
+            document.getElementById('back-btn').style.display = 'block';
             document.querySelector('.logo').setAttribute('href', '#');
         }
 
-        // --- INITIALISATION ---
         window.addEventListener('hashchange', handleLocationChange);
-        handleLocationChange(); // Vérifie l'URL au chargement de la page
+        handleLocationChange();
 
     </script>
 </body>
