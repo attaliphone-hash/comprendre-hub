@@ -105,7 +105,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Pour que le footer se colle en bas si peu de contenu */
             justify-content: space-between;
         }
 
@@ -223,7 +222,6 @@
             border-top: 1px solid #e2e8f0;
             padding: 2rem 0;
             margin-top: auto;
-            /* Pousse le footer en bas */
         }
 
         .footer-content {
@@ -279,7 +277,6 @@
             justify-content: center;
             padding: 1rem;
             box-sizing: border-box;
-            /* Important pour éviter le dépassement */
         }
 
         .modal {
@@ -436,6 +433,18 @@
                     </div>
                 </div>
 
+                <div class="card" onclick="openApp('logement')">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Loi 89 & ALUR</span>
+                        <h3>Mon Logement</h3>
+                        <p>Locataire ou propriétaire ? Dépôt de garantie, préavis de départ, réparations et gestion des
+                            conflits.</p>
+                    </div>
+                </div>
+
                 <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
@@ -459,7 +468,7 @@
                 <div class="footer-links">
                     <button onclick="toggleModal()">Mentions Légales</button>
                     <a href="mailto:contact@comprendre-mes-droits.fr">Me contacter</a>
-                    <a href="https://www.linkedin.com/in/votre-profil" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/sylvain-attal-295720112/" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </footer>
@@ -509,7 +518,8 @@
             'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
             'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
             'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
-            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true'
+            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true',
+            'logement': 'https://comprendre-mon-logement.streamlit.app/?embed=true' // Nouvelle App Logement
         };
 
         // --- NAVIGATION ---
