@@ -380,8 +380,7 @@
                 <p>
                     L'IA générative classique ne connaît pas toutes les subtilités administratives françaises.
                     Nos assistants experts analysent votre situation uniquement sur la base des <span
-                        class="highlight">textes officiels 2025</span> (Code du Travail, DGFiP, France Travail, Code de
-                    la Consommation) pour
+                        class="highlight">textes officiels 2025</span> (Code du Travail, DGFiP, France Travail) pour
                     vous garantir des réponses fiables.
                 </p>
             </div>
@@ -460,7 +459,7 @@
 
                 <div class="card" onclick="openApp('conso')">
                     <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=600&q=80');">
+                        style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi Hamon & Garanties</span>
@@ -578,4 +577,28 @@
 
         function showAppView(appName) {
             const url = apps[appName];
-            const
+            const frame = document.getElementById('app-frame');
+            if (frame.src !== url) frame.src = url;
+
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('app-view').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'flex';
+        }
+
+        // --- GESTION DE LA MODALE ---
+        function toggleModal() {
+            const modal = document.getElementById('legal-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+            }
+        }
+
+        window.addEventListener('hashchange', handleLocationChange);
+        handleLocationChange();
+
+    </script>
+</body>
+
+</html>
