@@ -376,12 +376,11 @@
     <div id="home-view">
         <div class="content-wrapper">
             <div class="hero-section">
-                <h1>Ne laissez pas une IA générique<br>deviner ou inventer vos droits.</h1>
+                <h1>Ne laissez pas une IA générique<br>deviner vos droits.</h1>
                 <p>
                     L'IA générative classique ne connaît pas toutes les subtilités administratives françaises.
                     Nos assistants experts analysent votre situation uniquement sur la base des <span
-                        class="highlight">textes officiels 2025</span> (Code du Travail, DGFiP, France Travail, loi
-                    ALUR, Code Monétaire et Financier) pour
+                        class="highlight">textes officiels 2025</span> (Code du Travail, DGFiP, France Travail) pour
                     vous garantir des réponses fiables.
                 </p>
             </div>
@@ -458,6 +457,18 @@
                     </div>
                 </div>
 
+                <div class="card" onclick="openApp('conso')">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Loi Hamon & Garanties</span>
+                        <h3>Ma Conso & Litiges</h3>
+                        <p>Achats internet, colis non reçus, garanties pannes et résiliation facile de vos abonnements.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
@@ -527,14 +538,14 @@
 
     <script>
         // --- CONFIGURATION ---
-        // Pensez à vérifier l'URL de l'app banque ci-dessous une fois déployée !
         const apps = {
             'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
             'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
             'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
             'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true',
             'logement': 'https://comprendre-mon-logement.streamlit.app/?embed=true',
-            'banque': 'https://comprendre-ma-banque.streamlit.app/?embed=true'
+            'banque': 'https://comprendre-ma-banque.streamlit.app/?embed=true',
+            'conso': 'https://comprendre-ma-conso.streamlit.app/?embed=true'
         };
 
         // --- NAVIGATION ---
@@ -566,28 +577,4 @@
 
         function showAppView(appName) {
             const url = apps[appName];
-            const frame = document.getElementById('app-frame');
-            if (frame.src !== url) frame.src = url;
-
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'flex';
-        }
-
-        // --- GESTION DE LA MODALE ---
-        function toggleModal() {
-            const modal = document.getElementById('legal-modal');
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            } else {
-                modal.style.display = 'flex';
-            }
-        }
-
-        window.addEventListener('hashchange', handleLocationChange);
-        handleLocationChange();
-
-    </script>
-</body>
-
-</html>
+            const
