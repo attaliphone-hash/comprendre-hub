@@ -2,680 +2,226 @@
 <html lang="fr">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZLSE04DEB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-EZLSE04DEB');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprendre Mes Droits - Le Portail Citoyen</title>
-    <meta name="description"
-        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage et Logement. Simple, anonyme et accessible à tous.">
-    <meta name="keywords"
-        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé">
-    <meta name="author" content="Comprendre Mes Droits">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
-    <meta property="og:description"
-        content="Impôts, Divorce, CAF... Posez vos questions à nos 9 agents experts. Réponses immédiates et gratuites.">
-    <meta property="og:image" content="https://www.comprendre-mes-droits.fr/logo.png">
-    <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
-    <meta name="description"
-        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage et Logement. Simple, anonyme et accessible à tous.">
-    <meta name="keywords"
-        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé">
-    <meta name="author" content="Comprendre Mes Droits">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
-    <meta property="og:description"
-        content="Impôts, Divorce, CAF... Posez vos questions à nos 9 agents experts. Réponses immédiates et gratuites.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/VOTRE_PSEUDO/VOTRE_REPO/main/logo.png">
-    <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
-    <link rel="icon" href="logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-
+    <title>Mes Assistants Administratifs - IA</title>
     <style>
-        /* --- DESIGN SYSTEM --- */
         :root {
-            --bg-color: #f8fafc;
-            --text-main: #1e293b;
-            --text-soft: #64748b;
-            --card-bg: #ffffff;
             --primary: #2563eb;
-            --success: #16a34a;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
         }
 
         body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* --- HEADER --- */
-        header {
-            background: white;
-            padding: 15px 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #e2e8f0;
-            flex-shrink: 0;
-            z-index: 10;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--text-main);
-            text-decoration: none;
-            display: flex;
-            align-items: flex-end;
-            gap: 12px;
-            line-height: 1;
-        }
-
-        .logo-img {
-            height: 45px;
-            width: auto;
-            border-radius: 8px;
-        }
-
-        /* Bouton retour */
-        .back-btn {
-            display: none;
-            padding: 8px 16px;
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            color: var(--text-main);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .back-btn:hover {
-            background-color: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-
-        .back-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
-        }
-
-        /* --- ACCUEIL (SCROLLABLE) --- */
-        #home-view {
-            flex: 1;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .content-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            box-sizing: border-box;
-        }
-
-        .hero-section {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-top: 1rem;
-        }
-
-        .hero-section h1 {
-            font-size: 2rem;
-            margin: 0 0 1rem 0;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .hero-section p {
-            color: var(--text-soft);
-            font-size: 1.05rem;
+            padding: 40px 20px;
             line-height: 1.6;
         }
 
-        .highlight {
-            color: var(--text-main);
-            font-weight: 600;
-            background-color: #e2e8f0;
-            padding: 2px 6px;
-            border-radius: 4px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* --- GRID 4 COLONNES --- */
-        .cards-container {
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1400px;
-            padding-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
-        /* --- CARTES (Désormais des liens <a>) --- */
         .card {
             background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-            cursor: pointer;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
-            height: 350px;
-
-            /* CSS Spécifique pour les liens */
-            text-decoration: none;
-            /* Enlève le soulignement */
-            color: inherit;
-            /* Garde la couleur du texte normale */
-            -webkit-tap-highlight-color: transparent;
-            /* Enlève le flash bleu sur mobile */
+            justify-content: space-between;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             border-color: var(--primary);
         }
 
-        .card-image {
-            height: 140px;
-            background-color: #cbd5e1;
-            background-size: cover;
-            background-position: center;
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
-        .card-content {
-            padding: 1.2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--success);
-            background-color: #dcfce7;
-            padding: 3px 6px;
-            border-radius: 4px;
-            margin-bottom: 0.6rem;
-            align-self: flex-start;
-            letter-spacing: 0.5px;
-        }
-
-        .card h3 {
-            margin: 0 0 0.4rem 0;
-            font-size: 1.1rem;
-        }
-
-        .card p {
+        p {
             margin: 0;
-            color: var(--text-soft);
-            font-size: 0.9rem;
-            line-height: 1.45;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            width: 100%;
-            background-color: white;
-            border-top: 1px solid #e2e8f0;
-            padding: 2rem 0;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a,
-        .footer-links button {
-            color: var(--text-soft);
-            text-decoration: none;
-            font-size: 0.9rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            font-family: inherit;
-        }
-
-        .footer-links a:hover,
-        .footer-links button:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            color: #94a3b8;
-            font-size: 0.85rem;
-        }
-
-        /* --- MODALE MENTIONS LÉGALES --- */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            box-sizing: border-box;
-        }
-
-        .modal {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal h2 {
-            margin-top: 0;
-        }
-
-        .modal h3 {
-            font-size: 1rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        .modal p {
-            color: var(--text-soft);
+            color: var(--text-light);
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
         }
 
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-soft);
+        .tag {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0284c7;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+            width: fit-content;
         }
 
-        /* --- IFRAME --- */
-        #app-view {
-            display: none;
-            flex: 1;
-            width: 100%;
-            height: 100%;
+        /* Couleurs spécifiques pour les tags */
+        .tag.finance {
+            background-color: #dcfce7;
+            color: #166534;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .tag.social {
+            background-color: #fae8ff;
+            color: #86198f;
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
+        .tag.juridique {
+            background-color: #ffedd5;
+            color: #9a3412;
+        }
 
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                padding: 15px 1rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
+        .tag.new {
+            background-color: #fee2e2;
+            color: #991b1b;
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <a href="#" class="logo" onclick="goHome(event)">
-            <img src="logo.png" alt="Logo IA Droits" class="logo-img">
-            <span>Comprendre Mes Droits</span>
-        </a>
+    <div class="container">
+        <header>
+            <h1>Mes Assistants IA 🤖</h1>
+            <div class="subtitle">L'administratif simplifié : fiscalité, social, juridique.</div>
+        </header>
 
-        <a id="back-btn" class="back-btn" href="#" onclick="goHome(event)">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            Retour à l'accueil
-        </a>
-    </header>
-
-    <div id="home-view">
-        <div class="content-wrapper">
-            <div class="hero-section">
-                <h1>Ne laissez pas une IA générique<br>deviner vos droits, voire les inventer.</h1>
-                <br>
-                <p
-                    style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #4b5563; line-height: 1.6; font-size: 1.0rem;">
-                    L'IA générative classique ne connaît pas toutes les subtilités administratives.
-                    <br>
-                    <strong>Nos assistants experts analysent votre situation unique à travers les textes officiels pour
-                        vous garantir des réponses fiables sur vos démarches clés :</strong>
-                    <br><br> Impôts, Bulletin de paie, Droits chômage, Aides sociales CAF, Logement, Santé, Divorce,
-                    Droit de la consommation, etc...
-                </p>
-
-                <p
-                    style="text-align: center; font-size: 0.70rem; color: #9ca3af; margin-top: 5px; margin-bottom: 30px;">
-                    <em>(Sources intégrées : Code Général des Impôts, Code Civil, Code de la Sécurité Sociale, Code du
-                        Travail, BOFiP, France Travail, loi ALUR, DGCCRF)</em>
-                </p>
-
-                <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
-                    👇 <strong>Sélectionnez un expert ci-dessous :</strong>
-                </p>
-            </div>
-
-            <div class="cards-container">
-
-                <a href="#paie" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Vérifié URSSAF 2025</span>
-                        <h3>Ma Paie Expliquée</h3>
-                        <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
-                            source.</p>
-                    </div>
-                </a>
-
-                <a href="#impots" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Source DGFiP 2025</span>
-                        <h3>Mes Impôts 2025</h3>
-                        <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
-                    </div>
-                </a>
-
-                <a href="#caf" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Barèmes CAF 2025</span>
-                        <h3>Mes Aides Sociales</h3>
-                        <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
-                    </div>
-                </a>
-
-                <a href="#chomage" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Règles France Travail</span>
-                        <h3>Mon Chômage</h3>
-                        <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="#logement" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi 89 & ALUR</span>
-                        <h3>Mon Logement</h3>
-                        <p>Locataire ou propriétaire ? Dépôt de garantie, préavis de départ, réparations et gestion des
-                            conflits.</p>
-                    </div>
-                </a>
-
-                <a href="#banque" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Code Monétaire</span>
-                        <h3>Ma Banque</h3>
-                        <p>Frais abusifs, fraude carte bancaire, droit au compte et crédit conso : faites respecter vos
-                            droits.</p>
-                    </div>
-                </a>
-
-                <a href="#conso" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi Hamon & Garanties</span>
-                        <h3>Ma Conso & Litiges</h3>
-                        <p>Achats internet, colis non reçus, garanties pannes et résiliation facile de vos abonnements.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="#sante" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Barèmes Sécu 2025</span>
-                        <h3>Ma Santé & La Sécu</h3>
-                        <p>Remboursements médicaux, arrêts de travail (IJSS), Mutuelle Solidaire (C2S) et ALD.</p>
-                    </div>
-                </a>
-
-                <a href="#divorce" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Code Civil</span>
-                        <h3>Mon Divorce</h3>
-                        <p>Pension alimentaire, garde alternée, prestation compensatoire et procédure de séparation.</p>
-                    </div>
-                </a>
-
-                <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge" style="background-color: #f1f5f9; color: #64748b;">🚧 En construction</span>
-                        <h3>Ma Retraite</h3>
-                        <p>L'assistant est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.
-                        </p>
-                    </div>
+        <div class="grid">
+            <a href="https://comprendre-impots.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">💶</div>
+                    <h2>Mes Impôts</h2>
+                    <p>Déclaration, frais réels, prélèvement à la source et barèmes 2025.</p>
                 </div>
+                <span class="tag finance">Finance</span>
+            </a>
 
-            </div>
-        </div>
-
-        <footer>
-            <div class="footer-content">
-                <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
-                    <p style="margin: 0; font-size: 0.65em; color: #6b7280; max-width: 800px; margin: 0 auto;">
-                        <strong>Information :</strong> Bien que nos agents s'appuient sur des sources officielles mises
-                        à jour (2025), les réponses sont fournies à titre informatif et ne valent pas consultation
-                        juridique professionnelle.
-                    </p>
+            <a href="https://comprendre-paie.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">💡</div>
+                    <h2>Ma Paie</h2>
+                    <p>Décrypter mon bulletin, comprendre le Net Social et les heures supp.</p>
                 </div>
-                <div class="copyright">
-                    © 2025 Comprendre Mes Droits. Tous droits réservés.
+                <span class="tag finance">Travail</span>
+            </a>
+
+            <a href="https://comprendre-chomage.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">💼</div>
+                    <h2>Mon Chômage</h2>
+                    <p>Droits ARE, Intermittents et réformes France Travail 2025.</p>
                 </div>
-                <div class="footer-links">
-                    <button onclick="toggleModal()">Mentions Légales</button>
-                    <a href="mailto:contact@comprendre-mes-droits.fr">Me contacter</a>
-                    <a href="https://www.linkedin.com/in/sylvain-attal-295720112/" target="_blank">LinkedIn</a>
+                <span class="tag social">Social</span>
+            </a>
+
+            <a href="https://comprendre-caf.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">🏦</div>
+                    <h2>Mes Aides CAF</h2>
+                    <p>RSA, Prime d'Activité, APL : simulation et éligibilité.</p>
                 </div>
-            </div>
-        </footer>
-    </div>
+                <span class="tag social">Aides</span>
+            </a>
 
-    <div id="legal-modal" class="modal-overlay" onclick="toggleModal()">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="close-modal" onclick="toggleModal()">&times;</button>
-            <h2>Mentions Légales</h2>
+            <a href="https://comprendre-logement.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">🏠</div>
+                    <h2>Mon Logement</h2>
+                    <p>Conflits propriétaires/locataires, caution, DPE et expulsion.</p>
+                </div>
+                <span class="tag juridique">Droit</span>
+            </a>
 
-            <h3>Éditeur du site</h3>
-            <p>
-                Ce site est édité à titre personnel par <strong>Sylvain Attal</strong>.<br>
-                Contact : <a href="mailto:contact@comprendre-mes-droits.fr">contact@comprendre-mes-droits.fr</a>
-            </p>
+            <a href="https://comprendre-banque.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">💳</div>
+                    <h2>Ma Banque</h2>
+                    <p>Frais abusifs, fraudes à la carte bancaire et droit au compte.</p>
+                </div>
+                <span class="tag finance">Conso</span>
+            </a>
 
-            <h3>Hébergement</h3>
-            <p>
-                Le site est hébergé par <strong>GitHub Pages</strong> (Code source) et <strong>Streamlit Cloud</strong>
-                (Calcul IA).<br>
-                Les données transitent par les serveurs sécurisés de Google Cloud (API Gemini).
-            </p>
+            <a href="https://comprendre-conso.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">🛒</div>
+                    <h2>Ma Conso</h2>
+                    <p>Litiges commerçants, garanties, colis non reçus et abonnements.</p>
+                </div>
+                <span class="tag juridique">Droit</span>
+            </a>
 
-            <h3>Propriété Intellectuelle & Responsabilité</h3>
-            <p>
-                Ce site est un projet de démonstration technologique ("Proof of Concept").<br>
-                Bien que basées sur des sources officielles, les informations fournies par l'IA sont données à titre
-                indicatif et ne remplacent pas un avis juridique professionnel ou une décision officielle de
-                l'administration.
-            </p>
+            <a href="https://comprendre-sante.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">🏥</div>
+                    <h2>Ma Santé</h2>
+                    <p>Remboursements Sécu, Arrêts maladie, Mutuelle et CSS.</p>
+                </div>
+                <span class="tag social">Santé</span>
+            </a>
 
-            <h3>Données Personnelles</h3>
-            <p>
-                Aucune donnée personnelle nominative n'est conservée par l'éditeur du site.<br>
-                Les conversations avec l'assistant sont anonymes et ne servent qu'à la session en cours.
-            </p>
+            <a href="https://comprendre-divorce.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">💔</div>
+                    <h2>Divorce & Famille</h2>
+                    <p>Procédures, Pension alimentaire, Garde et séparation.</p>
+                </div>
+                <span class="tag juridique">Famille</span>
+            </a>
+
+            <a href="https://comprendre-autonomie.streamlit.app" class="card" target="_blank">
+                <div>
+                    <div class="icon">🤝</div>
+                    <h2>Autonomie & Aidants</h2>
+                    <p>EHPAD, APA, Obligation alimentaire et droits des aidants.</p>
+                </div>
+                <span class="tag new">Nouveau</span>
+            </a>
+
         </div>
     </div>
-
-    <div id="app-view">
-        <iframe id="app-frame" src=""></iframe>
-    </div>
-
-    <script>
-        // --- CONFIGURATION ---
-        const apps = {
-            'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
-            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
-            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
-            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true',
-            'logement': 'https://comprendre-mon-logement.streamlit.app/?embed=true',
-            'banque': 'https://comprendre-ma-banque.streamlit.app/?embed=true',
-            'conso': 'https://comprendre-ma-conso.streamlit.app/?embed=true',
-            'sante': 'https://comprendre-ma-sante.streamlit.app/?embed=true',
-            'divorce': 'https://comprendre-mon-divorce.streamlit.app/?embed=true'
-        };
-
-        // --- NAVIGATION ---
-        // Plus besoin de la fonction openApp(), le lien <a> fait le travail !
-
-        function goHome(event) {
-            if (event) event.preventDefault();
-            history.pushState("", document.title, window.location.pathname + window.location.search);
-            showHomeView();
-        }
-
-        function handleLocationChange() {
-            const hash = window.location.hash.slice(1);
-            if (apps[hash]) {
-                showAppView(hash);
-            } else {
-                showHomeView();
-            }
-        }
-
-        function showHomeView() {
-            document.getElementById('app-frame').src = "about:blank";
-            document.getElementById('app-view').style.display = 'none';
-            document.getElementById('back-btn').style.display = 'none';
-            document.getElementById('home-view').style.display = 'flex';
-        }
-
-        function showAppView(appName) {
-            const url = apps[appName];
-            const frame = document.getElementById('app-frame');
-            if (frame.src !== url) frame.src = url;
-
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'flex';
-        }
-
-        // --- GESTION DE LA MODALE ---
-        function toggleModal() {
-            const modal = document.getElementById('legal-modal');
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            } else {
-                modal.style.display = 'flex';
-            }
-        }
-
-        window.addEventListener('hashchange', handleLocationChange);
-        handleLocationChange();
-
-    </script>
 
 </body>
 
