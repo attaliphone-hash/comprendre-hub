@@ -7,18 +7,16 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-EZLSE04DEB');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprendre Mes Droits - Le Portail Citoyen</title>
-
     <meta name="description"
-        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie. Simple, anonyme et accessible à tous.">
+        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie.">
     <meta name="keywords"
-        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad aides">
+        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, droit santé, ehpad aides">
     <meta name="author" content="Comprendre Mes Droits">
     <meta name="robots" content="index, follow">
 
@@ -41,23 +39,47 @@
         }
 
         body {
-            /* Application de la police Inter */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
         }
 
+        /* --- HEADER & BRANDING --- */
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            padding-top: 10px;
+        }
+
+        .logo {
+            width: 80px;
+            /* Taille du logo */
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            /* Coins légèrement arrondis si carré */
+        }
+
+        .site-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
         }
 
         h1 {
@@ -66,156 +88,43 @@
             color: #0f172a;
             line-height: 1.2;
             font-weight: 800;
-            /* Plus gras avec Inter */
         }
 
+        .hero-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 10px auto 10px auto;
+            color: #4b5563;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .sources {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .cta-arrow {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #4b5563;
+            font-weight: 600;
+        }
+
+        /* --- GRID CARTES --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
+            margin-bottom: 60px;
         }
 
         .card {
             background: var(--card-bg);
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary);
-        }
-
-        .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        p {
-            margin: 0;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #e0f2fe;
-            color: #0284c7;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 15px;
-            width: fit-content;
-        }
-
-        /* Couleurs spécifiques pour les tags */
-        .tag.finance {
-            background-color: #dcfce7;
-            color: #166534;
-        }
-
-        .tag.social {
-            background-color: #fae8ff;
-            color: #86198f;
-        }
-
-        .tag.juridique {
-            background-color: #ffedd5;
-            color: #9a3412;
-        }
-
-        .tag.new {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="container">
-        <header>
-            <h1>Ne laissez pas une IA générique<br>deviner vos droits, voire les inventer.</h1>
-
-            <p
-                style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #4b5563; line-height: 1.6; font-size: 1.0rem;">
-                L'IA générative classique ne connaît pas toutes les subtilités administratives.
-                <br>
-                <strong>Nos assistants experts analysent votre situation unique à travers les textes officiels pour vous
-                    garantir des réponses fiables sur vos démarches clés :</strong>
-                <br><br>
-                Impôts, Bulletin de paie, Droits chômage, Aides sociales CAF, Logement, Santé, Divorce, Droit de la
-                consommation, etc...
-            </p>
-
-            <p style="text-align: center; font-size: 0.75rem; color: #9ca3af; margin-top: 15px; margin-bottom: 30px;">
-                <em>(Sources intégrées : Code Général des Impôts, Code Civil, Code de la Sécurité Sociale, Code du
-                    Travail, BOFiP, France Travail, loi ALUR, DGCCRF)</em>
-            </p>
-
-            <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
-                👇 <strong>Sélectionnez un expert ci-dessous :</strong>
-            </p>
-        </header>
-
-        <div class="grid">
-            <a href="https://comprendre-impots.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">💶</div>
-                    <h2>Mes Impôts</h2>
-                    <p>Déclaration, frais réels, prélèvement à la source et barèmes 2025.</p>
-                </div>
-                <span class="tag finance">Finance</span>
-            </a>
-
-            <a href="https://comprendre-paie.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">💡</div>
-                    <h2>Ma Paie</h2>
-                    <p>Décrypter mon bulletin, comprendre le Net Social et les heures supp.</p>
-                </div>
-                <span class="tag finance">Travail</span>
-            </a>
-
-            <a href="https://comprendre-chomage.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">💼</div>
-                    <h2>Mon Chômage</h2>
-                    <p>Droits ARE, Intermittents et réformes France Travail 2025.</p>
-                </div>
-                <span class="tag social">Social</span>
-            </a>
-
-            <a href="https://comprendre-caf.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">🏦</div>
-                    <h2>Mes Aides CAF</h2>
-                    <p>RSA, Prime d'Activité, APL : simulation et éligibilité.</p>
-                </div>
-                <span class="tag social">Aides</span>
-            </a>
-
-            <a href="https://comprendre-logement.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">🏠</div>
-                    <h2>Mon Logement</h2>
-                    <p>Conflits propriétaires/locataires, caution, DPE et expulsion.</p>
-                </div>
-                <span class="tag juridique">Droit</span>
-            </a>
+            box-shadow: 0 4px 6px -1px rgba
