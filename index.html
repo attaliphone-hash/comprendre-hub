@@ -51,6 +51,8 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+            /* Rendu texte plus net */
         }
 
         /* --- HEADER --- */
@@ -120,6 +122,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+            /* Optimisation scroll mobile */
+            -webkit-overflow-scrolling: touch;
         }
 
         .content-wrapper {
@@ -151,14 +155,6 @@
             line-height: 1.6;
         }
 
-        .highlight {
-            color: var(--text-main);
-            font-weight: 600;
-            background-color: #e2e8f0;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
         /* --- GRID CARTES --- */
         .cards-container {
             display: grid;
@@ -169,25 +165,39 @@
             padding-bottom: 20px;
         }
 
-        /* --- CARTES (Liens) --- */
+        /* --- CARTES (CORRECTION MOBILE) --- */
         .card {
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
             height: 350px;
+
+            /* Essentiel pour le mobile : enlève le délai de tap */
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+
             text-decoration: none;
             color: inherit;
-            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.1s;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+        /* L'effet de soulèvement ne s'active QUE si on a une souris (pas sur mobile) */
+        @media (hover: hover) {
+            .card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+                border-color: var(--primary);
+            }
+        }
+
+        /* Feedback visuel immédiat quand on touche l'écran (Mobile) */
+        .card:active {
+            transform: scale(0.98);
+            background-color: #f8fafc;
             border-color: var(--primary);
         }
 
@@ -352,7 +362,7 @@
             border: none;
         }
 
-        /* Mobile */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
             .hero-section h1 {
                 font-size: 1.8rem;
@@ -400,10 +410,9 @@
                     style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #4b5563; line-height: 1.6; font-size: 1.0rem;">
                     Ne perdez plus de temps à chercher des réponses éparpillées.
                     <br>
-                    <strong>Nous avons rassemblé pour vous des assistants IA spécialisés pour chaque étape de votre
+                    <strong>Nous avons rassemblé pour vous des assistants spécialisés pour chaque étape de votre
                         vie.</strong>
-                    Ils analysent votre situation à travers les textes officiels sûrs pour vous offrir des réponses
-                    claires
+                    Ils analysent votre situation à travers les textes officiels pour vous offrir des réponses claires
                     et fiables.
                 </p>
 
@@ -612,4 +621,66 @@
     <script>
         // --- CONFIGURATION ---
         const apps = {
-            'paie': 'https://comprendre-
+            'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
+            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
+            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
+            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true',
+            'logement': 'https://comprendre-mon-logement.streamlit.app/?embed=true',
+            'banque': 'https://comprendre-ma-banque.streamlit.app/?embed=true',
+            'conso': 'https://comprendre-ma-conso.streamlit.app/?embed=true',
+            'sante': 'https://comprendre-ma-sante.streamlit.app/?embed=true',
+            'divorce': 'https://comprendre-mon-divorce.streamlit.app/?embed=true',
+            'autonomie': 'https://comprendre-autonomie.streamlit.app/?embed=true'
+        };
+
+        // --- NAVIGATION ---
+        function goHome(event) {
+            if (event) event.preventDefault();
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+            showHomeView();
+        }
+
+        function handleLocationChange() {
+            const hash = window.location.hash.slice(1);
+            if (apps[hash]) {
+                showAppView(hash);
+            } else {
+                showHomeView();
+            }
+        }
+
+        function showHomeView() {
+            document.getElementById('app-frame').src = "about:blank";
+            document.getElementById('app-view').style.display = 'none';
+            document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('home-view').style.display = 'flex';
+        }
+
+        function showAppView(appName) {
+            const url = apps[appName];
+            const frame = document.getElementById('app-frame');
+            if (frame.src !== url) frame.src = url;
+
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('app-view').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'flex';
+        }
+
+        // --- GESTION DE LA MODALE ---
+        function toggleModal() {
+            const modal = document.getElementById('legal-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+            }
+        }
+
+        window.addEventListener('hashchange', handleLocationChange);
+        handleLocationChange();
+
+    </script>
+
+</body>
+
+</html>
