@@ -2,9 +2,35 @@
 <html lang="fr">
 
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZLSE04DEB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-EZLSE04DEB');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Assistants Administratifs - IA</title>
+    <title>Comprendre Mes Droits - Le Portail Citoyen</title>
+
+    <meta name="description"
+        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie. Simple, anonyme et accessible à tous.">
+    <meta name="keywords"
+        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad aides">
+    <meta name="author" content="Comprendre Mes Droits">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
+    <meta property="og:description"
+        content="Impôts, Divorce, CAF, Autonomie... Posez vos questions à nos 10 agents experts. Réponses immédiates et gratuites.">
+    <meta property="og:image" content="https://www.comprendre-mes-droits.fr/logo.png">
+    <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
+
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #2563eb;
@@ -15,7 +41,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            /* Application de la police Inter */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
@@ -30,18 +57,16 @@
 
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
             color: #0f172a;
-        }
-
-        .subtitle {
-            color: var(--text-light);
-            font-size: 1.2rem;
+            line-height: 1.2;
+            font-weight: 800;
+            /* Plus gras avec Inter */
         }
 
         .grid {
@@ -78,6 +103,7 @@
         h2 {
             margin: 0 0 10px 0;
             font-size: 1.4rem;
+            font-weight: 600;
         }
 
         p {
@@ -125,8 +151,27 @@
 
     <div class="container">
         <header>
-            <h1>Mes Assistants IA 🤖</h1>
-            <div class="subtitle">L'administratif simplifié : fiscalité, social, juridique.</div>
+            <h1>Ne laissez pas une IA générique<br>deviner vos droits, voire les inventer.</h1>
+
+            <p
+                style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #4b5563; line-height: 1.6; font-size: 1.0rem;">
+                L'IA générative classique ne connaît pas toutes les subtilités administratives.
+                <br>
+                <strong>Nos assistants experts analysent votre situation unique à travers les textes officiels pour vous
+                    garantir des réponses fiables sur vos démarches clés :</strong>
+                <br><br>
+                Impôts, Bulletin de paie, Droits chômage, Aides sociales CAF, Logement, Santé, Divorce, Droit de la
+                consommation, etc...
+            </p>
+
+            <p style="text-align: center; font-size: 0.75rem; color: #9ca3af; margin-top: 15px; margin-bottom: 30px;">
+                <em>(Sources intégrées : Code Général des Impôts, Code Civil, Code de la Sécurité Sociale, Code du
+                    Travail, BOFiP, France Travail, loi ALUR, DGCCRF)</em>
+            </p>
+
+            <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
+                👇 <strong>Sélectionnez un expert ci-dessous :</strong>
+            </p>
         </header>
 
         <div class="grid">
@@ -174,56 +219,3 @@
                 </div>
                 <span class="tag juridique">Droit</span>
             </a>
-
-            <a href="https://comprendre-banque.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">💳</div>
-                    <h2>Ma Banque</h2>
-                    <p>Frais abusifs, fraudes à la carte bancaire et droit au compte.</p>
-                </div>
-                <span class="tag finance">Conso</span>
-            </a>
-
-            <a href="https://comprendre-conso.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">🛒</div>
-                    <h2>Ma Conso</h2>
-                    <p>Litiges commerçants, garanties, colis non reçus et abonnements.</p>
-                </div>
-                <span class="tag juridique">Droit</span>
-            </a>
-
-            <a href="https://comprendre-sante.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">🏥</div>
-                    <h2>Ma Santé</h2>
-                    <p>Remboursements Sécu, Arrêts maladie, Mutuelle et CSS.</p>
-                </div>
-                <span class="tag social">Santé</span>
-            </a>
-
-            <a href="https://comprendre-divorce.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">💔</div>
-                    <h2>Divorce & Famille</h2>
-                    <p>Procédures, Pension alimentaire, Garde et séparation.</p>
-                </div>
-                <span class="tag juridique">Famille</span>
-            </a>
-
-            <a href="https://comprendre-autonomie.streamlit.app" class="card" target="_blank">
-                <div>
-                    <div class="icon">🤝</div>
-                    <h2>Autonomie & Aidants</h2>
-                    <p>EHPAD, APA, Obligation alimentaire et droits des aidants.</p>
-                </div>
-                <span class="tag new">Nouveau</span>
-            </a>
-
-        </div>
-    </div>
-
-
-</body>
-
-</html>
