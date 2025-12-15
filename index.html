@@ -394,16 +394,16 @@
     <div id="home-view">
         <div class="content-wrapper">
             <div class="hero-section">
-                <h1>Ne laissez pas une IA générique<br>deviner vos droits, voire les inventer.</h1>
+                <h1>Impôts, Travail, Famille, Logement :<br>Vos 10 experts réunis au même endroit.</h1>
                 <br>
                 <p
                     style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #4b5563; line-height: 1.6; font-size: 1.0rem;">
-                    L'IA générative classique ne connaît pas toutes les subtilités administratives.
+                    Ne perdez plus de temps à chercher des réponses éparpillées.
                     <br>
-                    <strong>Nos assistants experts analysent votre situation unique à travers les textes officiels pour
-                        vous garantir des réponses fiables sur vos démarches clés :</strong>
-                    <br><br> Impôts, Bulletin de paie, Droits chômage, Aides sociales CAF, Logement, Santé, Divorce,
-                    Droit de la consommation, etc...
+                    <strong>Nous avons rassemblé pour vous des assistants spécialisés pour chaque étape de votre
+                        vie.</strong>
+                    Ils analysent votre situation à travers les textes officiels pour vous offrir des réponses claires
+                    et fiables.
                 </p>
 
                 <p
@@ -413,7 +413,7 @@
                 </p>
 
                 <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
-                    👇 <strong>Sélectionnez un expert ci-dessous :</strong>
+                    👇 <strong>Sélectionnez votre expert ci-dessous :</strong>
                 </p>
             </div>
 
@@ -611,66 +611,4 @@
     <script>
         // --- CONFIGURATION ---
         const apps = {
-            'paie': 'https://comprendre-mon-bulletin-de-paie.streamlit.app/?embed=true',
-            'impots': 'https://comprendre-mes-impots.streamlit.app/?embed=true',
-            'caf': 'https://comprendre-mes-aides-caf.streamlit.app/?embed=true',
-            'chomage': 'https://comprendre-indemnisation-chomage.streamlit.app/?embed=true',
-            'logement': 'https://comprendre-mon-logement.streamlit.app/?embed=true',
-            'banque': 'https://comprendre-ma-banque.streamlit.app/?embed=true',
-            'conso': 'https://comprendre-ma-conso.streamlit.app/?embed=true',
-            'sante': 'https://comprendre-ma-sante.streamlit.app/?embed=true',
-            'divorce': 'https://comprendre-mon-divorce.streamlit.app/?embed=true',
-            'autonomie': 'https://comprendre-autonomie.streamlit.app/?embed=true' // Ajout Autonomie
-        };
-
-        // --- NAVIGATION ---
-        function goHome(event) {
-            if (event) event.preventDefault();
-            history.pushState("", document.title, window.location.pathname + window.location.search);
-            showHomeView();
-        }
-
-        function handleLocationChange() {
-            const hash = window.location.hash.slice(1);
-            if (apps[hash]) {
-                showAppView(hash);
-            } else {
-                showHomeView();
-            }
-        }
-
-        function showHomeView() {
-            document.getElementById('app-frame').src = "about:blank";
-            document.getElementById('app-view').style.display = 'none';
-            document.getElementById('back-btn').style.display = 'none';
-            document.getElementById('home-view').style.display = 'flex';
-        }
-
-        function showAppView(appName) {
-            const url = apps[appName];
-            const frame = document.getElementById('app-frame');
-            if (frame.src !== url) frame.src = url;
-
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'flex';
-        }
-
-        // --- GESTION DE LA MODALE ---
-        function toggleModal() {
-            const modal = document.getElementById('legal-modal');
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            } else {
-                modal.style.display = 'flex';
-            }
-        }
-
-        window.addEventListener('hashchange', handleLocationChange);
-        handleLocationChange();
-
-    </script>
-
-</body>
-
-</html>
+            'paie': 'https://comprendre-
