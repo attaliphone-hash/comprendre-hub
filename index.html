@@ -14,9 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprendre Mes Droits - Le Portail Citoyen</title>
-
     <meta name="description"
-        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie.">
+        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie. Simple, anonyme et accessible à tous.">
     <meta name="keywords"
         content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad">
     <meta name="author" content="Comprendre Mes Droits">
@@ -160,7 +159,7 @@
             border-radius: 4px;
         }
 
-        /* --- GRID 4 COLONNES --- */
+        /* --- GRID CARTES --- */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -170,7 +169,7 @@
             padding-bottom: 20px;
         }
 
-        /* --- CARTES (Désormais des liens <a>) --- */
+        /* --- CARTES (Liens) --- */
         .card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -181,14 +180,9 @@
             display: flex;
             flex-direction: column;
             height: 350px;
-
-            /* CSS Spécifique pour les liens */
             text-decoration: none;
-            /* Enlève le soulignement */
             color: inherit;
-            /* Garde la couleur du texte normale */
             -webkit-tap-highlight-color: transparent;
-            /* Enlève le flash bleu sur mobile */
         }
 
         .card:hover {
@@ -287,7 +281,7 @@
             font-size: 0.85rem;
         }
 
-        /* --- MODALE MENTIONS LÉGALES --- */
+        /* --- MODALE --- */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -417,128 +411,3 @@
                     <em>(Sources intégrées : Code Général des Impôts, Code Civil, Code de la Sécurité Sociale, Code du
                         Travail, BOFiP, France Travail, loi ALUR, DGCCRF)</em>
                 </p>
-
-                <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
-                    👇 <strong>Sélectionnez un expert ci-dessous :</strong>
-                </p>
-            </div>
-
-            <div class="cards-container">
-
-                <a href="#paie" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Vérifié URSSAF 2025</span>
-                        <h3>Ma Paie Expliquée</h3>
-                        <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
-                            source.</p>
-                    </div>
-                </a>
-
-                <a href="#impots" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Source DGFiP 2025</span>
-                        <h3>Mes Impôts 2025</h3>
-                        <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
-                    </div>
-                </a>
-
-                <a href="#caf" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Barèmes CAF 2025</span>
-                        <h3>Mes Aides Sociales</h3>
-                        <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
-                    </div>
-                </a>
-
-                <a href="#chomage" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Règles France Travail</span>
-                        <h3>Mon Chômage</h3>
-                        <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="#logement" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi 89 & ALUR</span>
-                        <h3>Mon Logement</h3>
-                        <p>Locataire ou propriétaire ? Dépôt de garantie, préavis de départ, réparations et gestion des
-                            conflits.</p>
-                    </div>
-                </a>
-
-                <a href="#banque" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Code Monétaire</span>
-                        <h3>Ma Banque</h3>
-                        <p>Frais abusifs, fraude carte bancaire, droit au compte et crédit conso : faites respecter vos
-                            droits.</p>
-                    </div>
-                </a>
-
-                <a href="#conso" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi Hamon & Garanties</span>
-                        <h3>Ma Conso & Litiges</h3>
-                        <p>Achats internet, colis non reçus, garanties pannes et résiliation facile de vos abonnements.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="#sante" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Barèmes Sécu 2025</span>
-                        <h3>Ma Santé & La Sécu</h3>
-                        <p>Remboursements médicaux, arrêts de travail (IJSS), Mutuelle Solidaire (C2S) et ALD.</p>
-                    </div>
-                </a>
-
-                <a href="#divorce" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Code Civil</span>
-                        <h3>Mon Divorce</h3>
-                        <p>Pension alimentaire, garde alternée, prestation compensatoire et procédure de séparation.</p>
-                    </div>
-                </a>
-
-                <a href="#autonomie" class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi Grand Âge & ASV</span>
-                        <h3>Autonomie & Aidants</h3>
-                        <p>EHPAD, APA, Obligation alimentaire et droits des aidants : obtenez des réponses claires.</p>
-                    </div>
-                </a>
-
-                <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
-                    <div class="card-image" style="background-image: url('
