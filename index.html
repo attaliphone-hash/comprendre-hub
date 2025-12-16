@@ -12,26 +12,20 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Comprendre Mes Droits – Information juridique claire et accessible</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Comprendre Mes Droits - Le Portail Citoyen</title>
     <meta name="description"
-        content="Comprenez vos droits simplement grâce à une information juridique accessible, fondée sur des sources officielles. Travail, logement, famille, impôts, aides sociales : des réponses claires pour les situations du quotidien.">
-
+        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie.">
     <meta name="keywords"
-        content="comprendre mes droits, information juridique, droits du travail, droits du logement, droits de la famille, aides sociales, impôts, textes officiels, droits sociaux">
-
+        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad">
     <meta name="author" content="Comprendre Mes Droits">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="Comprendre Mes Droits – Vos droits expliqués simplement">
+    <meta property="og:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
     <meta property="og:description"
-        content="Une information juridique pédagogique, fondée sur des sources officielles, pour mieux comprendre vos droits dans les situations du quotidien.">
+        content="Impôts, Divorce, CAF, Autonomie... Posez vos questions à nos 10 agents experts. Réponses immédiates et gratuites.">
     <meta property="og:image" content="https://www.comprendre-mes-droits.fr/logo.png">
     <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
-    <meta property="og:type" content="website">
-
 
     <link rel="icon" href="logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -58,66 +52,74 @@
             flex-direction: column;
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
-            /* Rendu texte plus net */
         }
 
         /* --- HEADER --- */
         header {
             background: white;
-            padding: 15px 2rem;
+            padding: 10px 1.5rem;
+            /* Un peu plus compact sur mobile */
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #e2e8f0;
             flex-shrink: 0;
-            z-index: 10;
+            z-index: 20;
+            height: 60px;
+            /* Hauteur fixe pour calculs */
+            box-sizing: border-box;
         }
 
         .logo {
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-main);
             text-decoration: none;
             display: flex;
-            align-items: flex-end;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
             line-height: 1;
         }
 
         .logo-img {
-            height: 45px;
+            height: 38px;
             width: auto;
-            border-radius: 8px;
+            border-radius: 6px;
         }
 
-        /* Bouton retour */
-        .back-btn {
-            display: none;
-            padding: 8px 16px;
+        /* Groupe de boutons à droite (Infos + Retour) */
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* Boutons du header (Infos & Retour) */
+        .header-btn {
+            padding: 8px 12px;
             background-color: white;
             border: 1px solid #e2e8f0;
             color: var(--text-main);
             text-decoration: none;
             border-radius: 6px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            display: flex;
+            /* Flex par défaut pour le btn Infos */
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .back-btn:hover {
+        .header-btn:hover {
             background-color: #f1f5f9;
             border-color: #cbd5e1;
         }
 
-        .back-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
+        /* Le bouton retour est caché par défaut */
+        #back-btn {
+            display: none;
         }
 
         /* --- ACCUEIL (SCROLLABLE) --- */
@@ -128,7 +130,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            /* Optimisation scroll mobile */
             -webkit-overflow-scrolling: touch;
         }
 
@@ -144,12 +145,12 @@
         .hero-section {
             text-align: center;
             margin-bottom: 2.5rem;
-            max-width: 900px;
+            max-width: 800px;
             margin-top: 1rem;
         }
 
         .hero-section h1 {
-            font-size: 3rem;
+            font-size: 2rem;
             margin: 0 0 1rem 0;
             letter-spacing: -1px;
             line-height: 1.2;
@@ -171,7 +172,7 @@
             padding-bottom: 20px;
         }
 
-        /* --- CARTES (CORRECTION MOBILE) --- */
+        /* --- CARTES --- */
         .card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -181,17 +182,13 @@
             display: flex;
             flex-direction: column;
             height: 350px;
-
-            /* Essentiel pour le mobile : enlève le délai de tap */
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
-
             text-decoration: none;
             color: inherit;
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.1s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        /* L'effet de soulèvement ne s'active QUE si on a une souris (pas sur mobile) */
         @media (hover: hover) {
             .card:hover {
                 transform: translateY(-4px);
@@ -200,7 +197,6 @@
             }
         }
 
-        /* Feedback visuel immédiat quand on touche l'écran (Mobile) */
         .card:active {
             transform: scale(0.98);
             background-color: #f8fafc;
@@ -234,7 +230,6 @@
             border-radius: 4px;
             margin-bottom: 0.6rem;
             align-self: flex-start;
-            letter-spacing: 0.5px;
         }
 
         .card h3 {
@@ -249,7 +244,7 @@
             line-height: 1.45;
         }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER (Visible uniquement sur l'accueil) --- */
         footer {
             width: 100%;
             background-color: white;
@@ -286,17 +281,6 @@
             font-family: inherit;
         }
 
-        .footer-links a:hover,
-        .footer-links button:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            color: #94a3b8;
-            font-size: 0.85rem;
-        }
-
         /* --- MODALE --- */
         .modal-overlay {
             display: none;
@@ -311,6 +295,7 @@
             justify-content: center;
             padding: 1rem;
             box-sizing: border-box;
+            backdrop-filter: blur(2px);
         }
 
         .modal {
@@ -319,28 +304,10 @@
             border-radius: 12px;
             max-width: 600px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal h2 {
-            margin-top: 0;
-        }
-
-        .modal h3 {
-            font-size: 1rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        .modal p {
-            color: var(--text-soft);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
         }
 
         .close-modal {
@@ -349,23 +316,32 @@
             right: 1rem;
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             color: var(--text-soft);
+            padding: 5px;
         }
 
-        /* --- IFRAME --- */
+        /* --- IFRAME (Fix Mobile & Clavier) --- */
         #app-view {
             display: none;
-            flex: 1;
+            position: fixed;
+            /* Fixe l'écran pour éviter le scroll global */
+            top: 60px;
+            /* Hauteur du header */
+            left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 60px);
+            /* Prend tout le reste de l'écran */
+            z-index: 5;
+            background: white;
         }
 
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
         }
 
         /* Mobile Adjustments */
@@ -374,17 +350,32 @@
                 font-size: 1.8rem;
             }
 
-            .cards-container {
-                grid-template-columns: 1fr;
+            header {
+                padding: 10px 1rem;
             }
 
-            header {
-                padding: 15px 1.5rem;
+            .logo span {
+                display: none;
+                /* Cache le texte du logo sur mobile pour gagner de la place */
+            }
+
+            .logo-img {
+                height: 32px;
+                /* Logo un peu plus petit */
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
             }
 
             .footer-content {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            /* Ajustement pour clavier mobile */
+            #app-view {
+                /* Pas de padding bottom pour laisser le clavier pousser le contenu si besoin */
             }
         }
     </style>
@@ -395,62 +386,51 @@
     <header>
         <a href="#" class="logo" onclick="goHome(event)">
             <img src="logo.png" alt="Logo IA Droits" class="logo-img">
-            <span>COMPRENDRE MES DROITS</span>
+            <span>Comprendre Mes Droits</span>
         </a>
 
-        <a id="back-btn" class="back-btn" href="#" onclick="goHome(event)">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            Retour à l'accueil
-        </a>
+        <div class="header-actions">
+            <button class="header-btn" onclick="toggleModal()">
+                <span>ℹ️ Infos</span>
+            </button>
+
+            <a id="back-btn" class="header-btn" href="#" onclick="goHome(event)">
+                <svg width="16" height="16" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                    style="fill:none; stroke:currentColor; stroke-width:2;">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span style="display:none;">Retour</span> </a>
+        </div>
     </header>
 
     <div id="home-view">
         <div class="content-wrapper">
             <div class="hero-section">
-                <h1
-                    style="text-align: center; max-width: 900px; margin: 30px auto 20px auto; color: #111827; line-height: 1.25;">
-                    Comprendre simplement vos droits dans les situations du quotidien
-                </h1>
-
+                <h1>Impôts, Travail, Famille, Logement :<br>Vos 10 experts réunis au même endroit.</h1>
+                <br>
                 <p
-                    style="text-align: center; max-width: 800px; margin: 0 auto 10px auto; color: #6b7280; line-height: 1.55; font-size: 0.95rem;">
-                    <strong>Ne perdez plus de temps à chercher des réponses Légales éparpillées sur Internet.</strong>
-                    <br>Ici, vous
-                    trouverez toutes
-                    les informations qui vous aideront à comprendre vos droits à partir de sources officielles et à
-                    jour. Et c'est gratuit !
+                    style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #4b5563; line-height: 1.6; font-size: 1.0rem;">
+                    Ne perdez plus de temps à chercher des réponses éparpillées.
+                    <br>
+                    <strong>Nous avons rassemblé pour vous des assistants spécialisés pour chaque étape de votre
+                        vie.</strong>
+                    Ils analysent votre situation à travers les textes officiels pour vous offrir des réponses claires
+                    et fiables.
                 </p>
 
                 <p
-                    style="text-align: center; max-width: 800px; margin: 0 auto 30px auto; color: #374151; line-height: 1.55; font-size: 0.98rem; font-weight: 500;">
-                    Cliquez sur un module pour poser votre question dans notre chat expert. Nos agents IA analysent
-                    votre situation et vous fournissent des réponses claires, fiables et personnalisées.
+                    style="text-align: center; font-size: 0.70rem; color: #9ca3af; margin-top: 5px; margin-bottom: 30px;">
+                    <em>(Sources intégrées : Code Général des Impôts, Code Civil, Code de la Sécurité Sociale, Code du
+                        Travail, BOFiP, France Travail, loi ALUR, DGCCRF)</em>
                 </p>
 
-                <h2
-                    style="text-align: center; margin: 35px auto 15px auto; color: #111827; font-size: 1.0rem; font-weight: 500;">
-                    Des réponses claires sur vos droits dans les principaux domaines de la vie
-                </h2>
-
-                <ul
-                    style="max-width: 680px; margin: 0 auto 35px auto; color: #374151; line-height: 1.3; font-size: 0.7rem; padding-left: 20px;">
-                    Droit du travail : contrat, licenciement, chômage<br>
-                    Droit du logement : bail, charges, litiges, expulsions<br>
-                    Droit de la famille : séparation, pension, succession<br>
-                    Droits sociaux : aides, prestations, retraite<br>
-                    Fiscalité : impôts, déclarations, contrôles
-                </ul>
-
+                <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
+                    👇 <strong>Sélectionnez votre expert ci-dessous :</strong>
                 </p>
-
-
             </div>
 
             <div class="cards-container">
-
                 <a href="#paie" class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
@@ -577,7 +557,6 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -585,17 +564,16 @@
             <div class="footer-content">
                 <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
                     <p style="margin: 0; font-size: 0.65em; color: #6b7280; max-width: 800px; margin: 0 auto;">
-                        <strong>Information :</strong> Nos agents utilisent des sources officielles à jour (2025) pour
-                        vous guider. Les réponses restent informatives et ne remplacent pas un avis juridique
-                        professionnel.
+                        <strong>Information :</strong> Bien que nos agents s'appuient sur des sources officielles mises
+                        à jour (2025), les réponses sont fournies à titre informatif et ne valent pas consultation
+                        juridique professionnelle.
                     </p>
                 </div>
                 <div class="copyright">
                     © 2025 Comprendre Mes Droits. Tous droits réservés.
                 </div>
                 <div class="footer-links">
-                    <button onclick="toggleModal()">Mentions Légales</button>
-                    <a href="mailto:contact@comprendre-mes-droits.fr">Me contacter</a>
+                    <button onclick="toggleModal()">Mentions Légales & Contact</button>
                     <a href="https://www.linkedin.com/in/sylvain-attal-295720112/" target="_blank">LinkedIn</a>
                 </div>
             </div>
@@ -605,22 +583,33 @@
     <div id="legal-modal" class="modal-overlay" onclick="toggleModal()">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="close-modal" onclick="toggleModal()">&times;</button>
-            <h2>Mentions Légales</h2>
 
-            <h3>Éditeur du site</h3>
-            <p>
-                Ce site est édité à titre personnel par <strong>Sylvain Attal</strong>.<br>
-                Contact : <a href="mailto:contact@comprendre-mes-droits.fr">contact@comprendre-mes-droits.fr</a>
-            </p>
+            <h2>Informations & Contact</h2>
 
-            <h3>Hébergement</h3>
+            <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="margin-top:0;">📬 Me Contacter</h3>
+                <p>Une question, une suggestion ou un bug ?</p>
+                <p><strong>Email :</strong> <a
+                        href="mailto:contact@comprendre-mes-droits.fr">contact@comprendre-mes-droits.fr</a></p>
+                <p><strong>Réseau Pro :</strong> <a href="https://www.linkedin.com/in/sylvain-attal-295720112/"
+                        target="_blank">Mon profil LinkedIn</a></p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+
+            <h3>Mentions Légales</h3>
+
+            <h4>Éditeur du site</h4>
+            <p>Ce site est édité à titre personnel par <strong>Sylvain Attal</strong>.</p>
+
+            <h4>Hébergement</h4>
             <p>
                 Le site est hébergé par <strong>GitHub Pages</strong> (Code source) et <strong>Streamlit Cloud</strong>
                 (Calcul IA).<br>
                 Les données transitent par les serveurs sécurisés de Google Cloud (API Gemini).
             </p>
 
-            <h3>Propriété Intellectuelle & Responsabilité</h3>
+            <h4>Propriété Intellectuelle & Responsabilité</h4>
             <p>
                 Ce site est un projet de démonstration technologique ("Proof of Concept").<br>
                 Bien que basées sur des sources officielles, les informations fournies par l'IA sont données à titre
@@ -628,7 +617,7 @@
                 l'administration.
             </p>
 
-            <h3>Données Personnelles</h3>
+            <h4>Données Personnelles</h4>
             <p>
                 Aucune donnée personnelle nominative n'est conservée par l'éditeur du site.<br>
                 Les conversations avec l'assistant sont anonymes et ne servent qu'à la session en cours.
@@ -674,7 +663,7 @@
         function showHomeView() {
             document.getElementById('app-frame').src = "about:blank";
             document.getElementById('app-view').style.display = 'none';
-            document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('back-btn').style.display = 'none'; // Cache le bouton retour
             document.getElementById('home-view').style.display = 'flex';
         }
 
@@ -685,7 +674,7 @@
 
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'flex';
+            document.getElementById('back-btn').style.display = 'flex'; // Affiche le bouton retour
         }
 
         // --- GESTION DE LA MODALE ---
