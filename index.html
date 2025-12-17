@@ -15,15 +15,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comprendre Mes Droits - Le Portail Citoyen</title>
     <meta name="description"
-        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage et Logement.">
+        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie.">
     <meta name="keywords"
-        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad">
+        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad, apa">
     <meta name="author" content="Comprendre Mes Droits">
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
     <meta property="og:description"
-        content="Impôts, Divorce, CAF, Santé... Posez vos questions à nos agents experts. Réponses immédiates et gratuites.">
+        content="Impôts, Divorce, CAF, Santé, Autonomie... Posez vos questions à nos agents experts. Réponses immédiates et gratuites.">
     <meta property="og:image" content="https://www.comprendre-mes-droits.fr/logo.png">
     <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
 
@@ -419,7 +419,8 @@
 
                 <p
                     style="text-align: center; font-size: 0.70rem; color: #000000; margin-top: 5px; margin-bottom: 30px;">
-                    <em>(Droit du travail, Droit du logement, Droit de la famille, Droits sociaux, Fiscalité)</em>
+                    <em>(Droit du travail, Droit du logement, Droit de la famille, Droits sociaux, Fiscalité,
+                        Autonomie)</em>
                 </p>
 
                 <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
@@ -532,6 +533,17 @@
                     </div>
                 </a>
 
+                <a href="#autonomie" class="card">
+                    <div class="card-image"
+                        style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80');">
+                    </div>
+                    <div class="card-content">
+                        <span class="badge">✅ Loi Grand Âge & APA</span>
+                        <h3>Autonomie & Aidants</h3>
+                        <p>Droits en EHPAD, calcul de l'APA, obligation alimentaire et statut de proche aidant.</p>
+                    </div>
+                </a>
+
                 <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
@@ -617,11 +629,9 @@
 
     <script>
         // --- CONFIGURATION ---
-        // ✅ URL CONFIGURÉE CORRECTEMENT
         const BASE_URL = 'https://mes-droits.streamlit.app';
 
         // --- MAPPING DES AGENTS ---
-        // Ici on crée le lien dynamique vers votre Super-App avec le bon paramètre ?cat=
         const getAppUrl = (category) => `${BASE_URL}/?cat=${category}&embed=true`;
 
         // --- NAVIGATION ---
@@ -634,10 +644,10 @@
         function handleLocationChange() {
             const hash = window.location.hash.slice(1);
 
-            // Liste des catégories valides (J'ai retiré 'retraite' car en construction)
+            // ✅ J'ai ajouté 'autonomie' dans la liste des catégories valides
             const validCategories = [
                 'paie', 'impots', 'caf', 'chomage', 'logement',
-                'banque', 'conso', 'sante', 'divorce'
+                'banque', 'conso', 'sante', 'divorce', 'autonomie'
             ];
 
             if (hash && validCategories.includes(hash)) {
@@ -658,7 +668,6 @@
             const url = getAppUrl(category);
             const frame = document.getElementById('app-frame');
 
-            // On ne recharge l'iframe que si l'URL change
             if (frame.src !== url) {
                 frame.src = url;
             }
