@@ -7,10 +7,8 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-EZLSE04DEB');
     </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comprendre Mes Droits - Le Portail Citoyen</title>
@@ -24,10 +22,10 @@
     <meta property="og:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
     <meta property="og:description"
         content="Impôts, Divorce, CAF, Santé, Autonomie... Posez vos questions à nos agents experts. Réponses immédiates et gratuites.">
-    <meta property="og:image" content="https://www.comprendre-mes-droits.fr/logo.png">
+    <meta property="og:image" content="https://www.comprendre-mes-droits.fr/logo_new.png">
     <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
 
-    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="icon" href="logo_new.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 
     <style>
@@ -64,7 +62,8 @@
             border-bottom: 1px solid #e2e8f0;
             flex-shrink: 0;
             z-index: 20;
-            height: 60px;
+            height: 70px;
+            /* Légèrement plus haut pour accueillir le nouveau logo */
             box-sizing: border-box;
         }
 
@@ -80,9 +79,11 @@
         }
 
         .logo-img {
-            height: 38px;
+            height: 48px;
+            /* Taille augmentée pour la lisibilité du texte dans le logo */
             width: auto;
-            border-radius: 6px;
+            border-radius: 0;
+            /* On retire l'arrondi si le logo contient du texte */
         }
 
         /* Groupe de boutons à droite */
@@ -327,10 +328,11 @@
         #app-view {
             display: none;
             position: fixed;
-            top: 60px;
+            top: 70px;
+            /* Ajusté par rapport à la nouvelle hauteur du header */
             left: 0;
             width: 100%;
-            height: calc(100% - 60px);
+            height: calc(100% - 70px);
             z-index: 5;
             background: white;
         }
@@ -352,13 +354,9 @@
                 padding: 10px 1rem;
             }
 
-            .logo span {
-                display: block;
-                font-size: 0.9rem;
-            }
-
+            /* Ajustement logo mobile */
             .logo-img {
-                height: 32px;
+                height: 40px;
             }
 
             .cards-container {
@@ -374,11 +372,9 @@
 </head>
 
 <body>
-
     <header>
         <a href="#" class="logo" onclick="goHome(event)">
-            <img src="logo.png" alt="Logo IA Droits" class="logo-img">
-            <span>COMPRENDRE MES DROITS</span>
+            <img src="logo_new.png" alt="Logo Comprendre Mes Droits" class="logo-img">
         </a>
 
         <div class="header-actions">
@@ -691,7 +687,6 @@
         handleLocationChange();
 
     </script>
-
 </body>
 
 </html>
