@@ -211,20 +211,19 @@
             padding-bottom: 20px;
         }
 
-        /* --- CARTES --- */
+        /* --- CARTES (NOUVELLE STRUCTURE SEO) --- */
+        /* La carte devient un conteneur relatif */
         .card {
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
-            cursor: pointer;
             display: flex;
             flex-direction: column;
-            height: 350px;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            text-decoration: none;
-            color: inherit;
+            /* On enlève la hauteur fixe pour laisser l'accordéon pousser le contenu si besoin, ou on garde min-height */
+            min-height: 350px;
+            position: relative;
+            /* Crucial pour le stretched link */
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
@@ -236,10 +235,21 @@
             }
         }
 
-        .card:active {
-            transform: scale(0.98);
-            background-color: #f8fafc;
-            border-color: var(--primary);
+        /* CSS du lien étendu */
+        .card-main-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card-main-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            /* Couche 1 : Recouvre toute la carte */
         }
 
         .card-image {
@@ -275,6 +285,7 @@
             margin: 0 0 0.4rem 0;
             font-size: 1.1rem;
             font-weight: 700;
+            color: var(--text-main);
         }
 
         .card p {
@@ -282,6 +293,50 @@
             color: var(--text-soft);
             font-size: 0.9rem;
             line-height: 1.45;
+        }
+
+        /* --- ACCORDÉON SEO --- */
+        details {
+            margin-top: auto;
+            /* Pousse vers le bas */
+            padding-top: 10px;
+            position: relative;
+            z-index: 2;
+            /* Couche 2 : Au-dessus du lien étendu pour être cliquable */
+        }
+
+        summary {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            /* Cache la flèche par défaut sur certains navigateurs */
+        }
+
+        /* Petite flèche personnalisée optionnelle */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:after {
+            content: "+";
+            float: right;
+            font-weight: bold;
+        }
+
+        details[open] summary:after {
+            content: "-";
+        }
+
+        .seo-text {
+            font-size: 0.8rem;
+            color: #4b5563;
+            margin-top: 8px;
+            line-height: 1.4;
+            background-color: #f8fafc;
+            padding: 8px;
+            border-radius: 6px;
         }
 
         /* --- FOOTER --- */
@@ -464,120 +519,190 @@
             </div>
 
             <div class="cards-container">
-                <a href="#paie" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Vérifié URSSAF 2025</span>
-                        <h2>Ma Paie Expliquée</h2>
+                        <h2><a href="#paie" class="card-main-link">Ma Paie Expliquée</a></h2>
                         <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
                             source.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Vérifiez votre salaire net imposable 2025, le calcul du SMIC horaire, vos heures
+                                supplémentaires défiscalisées et le montant de vos cotisations CSG/CRDS.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#impots" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Source DGFiP 2025</span>
-                        <h2>Mes Impôts 2025</h2>
+                        <h2><a href="#impots" class="card-main-link">Mes Impôts 2025</a></h2>
                         <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Aide pour la déclaration de revenus 2025 : calcul du quotient familial, crédits d'impôt,
+                                frais réels et dates limites de paiement.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#caf" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Barèmes CAF 2025</span>
-                        <h2>Mes Aides Sociales</h2>
+                        <h2><a href="#caf" class="card-main-link">Mes Aides Sociales</a></h2>
                         <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Simulation des montants RSA socle 2025, plafonds de ressources pour la Prime d'Activité
+                                et calcul des aides au logement (APL/ALS) CAF et MSA.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#chomage" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Règles France Travail</span>
-                        <h2>Mon Chômage</h2>
+                        <h2><a href="#chomage" class="card-main-link">Mon Chômage</a></h2>
                         <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.
                         </p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Droits après rupture conventionnelle, calcul de l'Allocation de Retour à l'Emploi (ARE),
+                                différé d'indemnisation et actualisation France Travail.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#logement" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi 89 & ALUR</span>
-                        <h2>Mon Logement</h2>
+                        <h2><a href="#logement" class="card-main-link">Mon Logement</a></h2>
                         <p>Locataire ou propriétaire ? Dépôt de garantie, préavis de départ, réparations et gestion des
                             conflits.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Modèles de lettre de préavis (zone tendue), restitution du dépôt de garantie, grille de
+                                vétusté et recours en cas de logement insalubre.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#banque" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Code Monétaire</span>
-                        <h2>Ma Banque</h2>
+                        <h2><a href="#banque" class="card-main-link">Ma Banque</a></h2>
                         <p>Frais abusifs, fraude carte bancaire, droit au compte et crédit conso : faites respecter vos
                             droits.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Remboursement fraude bancaire (phishing), plafonnement des frais d'incident, procédure
+                                de droit au compte et délais de rétractation crédit.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#conso" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi Hamon & Garanties</span>
-                        <h2>Ma Conso & Litiges</h2>
+                        <h2><a href="#conso" class="card-main-link">Ma Conso & Litiges</a></h2>
                         <p>Achats internet, colis non reçus, garanties pannes et résiliation facile de vos abonnements.
                         </p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Garantie légale de conformité (2 ans), droit de rétractation (14 jours), résiliation loi
+                                Hamon et médiation consommation.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#sante" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Barèmes Sécu 2025</span>
-                        <h2>Ma Santé & La Sécu</h2>
+                        <h2><a href="#sante" class="card-main-link">Ma Santé & La Sécu</a></h2>
                         <p>Remboursements médicaux, arrêts de travail (IJSS), Mutuelle Solidaire (C2S) et ALD.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Plafonds Complémentaire Santé Solidaire (C2S), calcul des Indemnités Journalières
+                                (IJSS), prise en charge ALD 100% et arrêt maladie.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#divorce" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Code Civil</span>
-                        <h2>Mon Divorce</h2>
+                        <h2><a href="#divorce" class="card-main-link">Mon Divorce</a></h2>
                         <p>Pension alimentaire, garde alternée, prestation compensatoire et procédure de séparation.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Divorce par consentement mutuel sans juge, calcul de la pension alimentaire 2025, droit
+                                de visite et hébergement, prestation compensatoire.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
-                <a href="#autonomie" class="card">
+                <div class="card">
                     <div class="card-image"
                         style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80');">
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi Grand Âge & APA</span>
-                        <h2>Autonomie & Aidants</h2>
+                        <h2><a href="#autonomie" class="card-main-link">Autonomie & Aidants</a></h2>
                         <p>Droits en EHPAD, calcul de l'APA, obligation alimentaire et statut de proche aidant.</p>
+                        <details>
+                            <summary>En savoir plus</summary>
+                            <div class="seo-text">
+                                Montants APA (GIR 1-4) à domicile et en établissement, déduction fiscale EHPAD,
+                                obligation alimentaire des enfants et congé de proche aidant.
+                            </div>
+                        </details>
                     </div>
-                </a>
+                </div>
 
                 <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
                     <div class="card-image"
