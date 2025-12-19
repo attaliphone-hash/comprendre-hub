@@ -10,7 +10,7 @@
         gtag('config', 'G-EZLSE04DEB');
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprendre Mes Droits - Le Portail Citoyen</title>
     <meta name="description"
         content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie.">
@@ -63,7 +63,6 @@
             flex-shrink: 0;
             z-index: 20;
             height: 110px;
-            /* Légèrement plus haut pour accueillir le nouveau logo */
             box-sizing: border-box;
         }
 
@@ -80,20 +79,16 @@
 
         .logo-img {
             height: 100px;
-            /* Taille augmentée pour la lisibilité du texte dans le logo */
             width: auto;
             border-radius: 0;
-            /* On retire l'arrondi si le logo contient du texte */
         }
 
-        /* Groupe de boutons à droite */
         .header-actions {
             display: flex;
             gap: 10px;
             align-items: center;
         }
 
-        /* Boutons du header */
         .header-btn {
             padding: 8px;
             background-color: white;
@@ -116,7 +111,6 @@
             border-color: #cbd5e1;
         }
 
-        /* Style spécifique pour le bouton retour (plus large avec texte) */
         #back-btn {
             display: none;
             width: auto;
@@ -135,7 +129,8 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .content-wrapper {
+        /* Utilisation de main pour le contenu principal */
+        main.content-wrapper {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -226,7 +221,8 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             font-weight: 700;
-            color: var(--success);
+            /* CORRECTION 4 : Couleur plus sombre pour le contraste (Accessibilité) */
+            color: #064e3b;
             background-color: #dcfce7;
             padding: 3px 6px;
             border-radius: 4px;
@@ -234,9 +230,11 @@
             align-self: flex-start;
         }
 
-        .card h3 {
+        /* Ajustement pour les H2 des cartes */
+        .card h2 {
             margin: 0 0 0.4rem 0;
             font-size: 1.1rem;
+            font-weight: 700;
         }
 
         .card p {
@@ -329,7 +327,6 @@
             display: none;
             position: fixed;
             top: 70px;
-            /* Ajusté par rapport à la nouvelle hauteur du header */
             left: 0;
             width: 100%;
             height: calc(100% - 70px);
@@ -354,12 +351,10 @@
                 padding: 5px 1rem;
             }
 
-            /* Ajustement logo mobile */
             .logo-img {
                 height: 75px !important;
                 max-width: 100%;
                 object-fit: contain;
-                /* Assure que le logo ne soit pas déformé */
             }
 
             .cards-container {
@@ -377,7 +372,7 @@
 <body>
     <header>
         <a href="#" class="logo" onclick="goHome(event)">
-            <img src="logo_new.png" alt="Logo Comprendre Mes Droits" class="logo-img">
+            <img src="logo_new.png" alt="Logo Comprendre Mes Droits" class="logo-img" width="288" height="100">
         </a>
 
         <div class="header-actions">
@@ -402,7 +397,7 @@
     </header>
 
     <div id="home-view">
-        <div class="content-wrapper">
+        <main class="content-wrapper">
             <div class="hero-section">
                 <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
                 <br><br>
@@ -435,7 +430,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Vérifié URSSAF 2025</span>
-                        <h3>Ma Paie Expliquée</h3>
+                        <h2>Ma Paie Expliquée</h2>
                         <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
                             source.</p>
                     </div>
@@ -447,7 +442,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Source DGFiP 2025</span>
-                        <h3>Mes Impôts 2025</h3>
+                        <h2>Mes Impôts 2025</h2>
                         <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
                     </div>
                 </a>
@@ -458,7 +453,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Barèmes CAF 2025</span>
-                        <h3>Mes Aides Sociales</h3>
+                        <h2>Mes Aides Sociales</h2>
                         <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
                     </div>
                 </a>
@@ -469,7 +464,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Règles France Travail</span>
-                        <h3>Mon Chômage</h3>
+                        <h2>Mon Chômage</h2>
                         <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.
                         </p>
                     </div>
@@ -481,7 +476,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi 89 & ALUR</span>
-                        <h3>Mon Logement</h3>
+                        <h2>Mon Logement</h2>
                         <p>Locataire ou propriétaire ? Dépôt de garantie, préavis de départ, réparations et gestion des
                             conflits.</p>
                     </div>
@@ -493,7 +488,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Code Monétaire</span>
-                        <h3>Ma Banque</h3>
+                        <h2>Ma Banque</h2>
                         <p>Frais abusifs, fraude carte bancaire, droit au compte et crédit conso : faites respecter vos
                             droits.</p>
                     </div>
@@ -505,7 +500,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi Hamon & Garanties</span>
-                        <h3>Ma Conso & Litiges</h3>
+                        <h2>Ma Conso & Litiges</h2>
                         <p>Achats internet, colis non reçus, garanties pannes et résiliation facile de vos abonnements.
                         </p>
                     </div>
@@ -517,7 +512,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Barèmes Sécu 2025</span>
-                        <h3>Ma Santé & La Sécu</h3>
+                        <h2>Ma Santé & La Sécu</h2>
                         <p>Remboursements médicaux, arrêts de travail (IJSS), Mutuelle Solidaire (C2S) et ALD.</p>
                     </div>
                 </a>
@@ -528,7 +523,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Code Civil</span>
-                        <h3>Mon Divorce</h3>
+                        <h2>Mon Divorce</h2>
                         <p>Pension alimentaire, garde alternée, prestation compensatoire et procédure de séparation.</p>
                     </div>
                 </a>
@@ -539,7 +534,7 @@
                     </div>
                     <div class="card-content">
                         <span class="badge">✅ Loi Grand Âge & APA</span>
-                        <h3>Autonomie & Aidants</h3>
+                        <h2>Autonomie & Aidants</h2>
                         <p>Droits en EHPAD, calcul de l'APA, obligation alimentaire et statut de proche aidant.</p>
                     </div>
                 </a>
@@ -549,148 +544,4 @@
                         style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
                     </div>
                     <div class="card-content">
-                        <span class="badge" style="background-color: #f1f5f9; color: #64748b;">🚧 En construction</span>
-                        <h3>Ma Retraite</h3>
-                        <p>L'assistant est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <div class="footer-content">
-                <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
-                    <p style="margin: 0; font-size: 0.65em; color: #000000; max-width: 800px; margin: 0 auto;">
-                        <strong>Information :</strong> Bien que nos agents s'appuient sur des sources officielles mises
-                        à jour (2025), les réponses sont fournies à titre informatif et ne valent pas consultation
-                        juridique professionnelle.
-                    </p>
-                </div>
-                <div class="copyright">
-                    © 2025 Comprendre Mes Droits. Tous droits réservés.
-                </div>
-                <div class="footer-links">
-                    <button onclick="toggleModal()">Mentions Légales & Contact</button>
-                    <a href="https://www.linkedin.com/in/sylvain-attal-295720112/" target="_blank">LinkedIn</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <div id="legal-modal" class="modal-overlay" onclick="toggleModal()">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="close-modal" onclick="toggleModal()">&times;</button>
-
-            <h2>Informations & Contact</h2>
-
-            <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <h3 style="margin-top:0;">📬 Me Contacter</h3>
-                <p>Une question, une suggestion ou un bug ?</p>
-                <p><strong>Email :</strong> <a
-                        href="mailto:contact@comprendre-mes-droits.fr">contact@comprendre-mes-droits.fr</a></p>
-                <p><strong>Réseau Pro :</strong> <a href="https://www.linkedin.com/in/sylvain-attal-295720112/"
-                        target="_blank">Mon profil LinkedIn</a></p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
-
-            <h3>Mentions Légales</h3>
-
-            <h4>Éditeur du site</h4>
-            <p>Ce site est édité à titre personnel par <strong>Sylvain Attal</strong>.</p>
-
-            <h4>Hébergement</h4>
-            <p>
-                Le site est hébergé par <strong>GitHub Pages</strong> (Code source) et <strong>Streamlit Cloud</strong>
-                (Calcul IA).<br>
-                Les données transitent par les serveurs sécurisés de Google Cloud (API Gemini).
-            </p>
-
-            <h4>Propriété Intellectuelle & Responsabilité</h4>
-            <p>
-                Ce site est un projet de démonstration technologique ("Proof of Concept").<br>
-                Bien que basées sur des sources officielles, les informations fournies par l'IA sont données à titre
-                indicatif et ne remplacent pas un avis juridique professionnel ou une décision officielle de
-                l'administration.
-            </p>
-
-            <h4>Données Personnelles</h4>
-            <p>
-                Aucune donnée personnelle nominative n'est conservée par l'éditeur du site.<br>
-                Les conversations avec l'assistant sont anonymes et ne servent qu'à la session en cours.
-            </p>
-        </div>
-    </div>
-
-    <div id="app-view">
-        <iframe id="app-frame" src=""></iframe>
-    </div>
-
-    <script>
-        // --- CONFIGURATION ---
-        const BASE_URL = 'https://mes-droits.streamlit.app';
-
-        // --- MAPPING DES AGENTS ---
-        const getAppUrl = (category) => `${BASE_URL}/?cat=${category}&embed=true`;
-
-        // --- NAVIGATION ---
-        function goHome(event) {
-            if (event) event.preventDefault();
-            history.pushState("", document.title, window.location.pathname + window.location.search);
-            showHomeView();
-        }
-
-        function handleLocationChange() {
-            const hash = window.location.hash.slice(1);
-
-            // ✅ J'ai ajouté 'autonomie' dans la liste des catégories valides
-            const validCategories = [
-                'paie', 'impots', 'caf', 'chomage', 'logement',
-                'banque', 'conso', 'sante', 'divorce', 'autonomie'
-            ];
-
-            if (hash && validCategories.includes(hash)) {
-                showAppView(hash);
-            } else {
-                showHomeView();
-            }
-        }
-
-        function showHomeView() {
-            document.getElementById('app-frame').src = "about:blank";
-            document.getElementById('app-view').style.display = 'none';
-            document.getElementById('back-btn').style.display = 'none';
-            document.getElementById('home-view').style.display = 'flex';
-        }
-
-        function showAppView(category) {
-            const url = getAppUrl(category);
-            const frame = document.getElementById('app-frame');
-
-            if (frame.src !== url) {
-                frame.src = url;
-            }
-
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'flex';
-        }
-
-        // --- GESTION DE LA MODALE ---
-        function toggleModal() {
-            const modal = document.getElementById('legal-modal');
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            } else {
-                modal.style.display = 'flex';
-            }
-        }
-
-        window.addEventListener('hashchange', handleLocationChange);
-        handleLocationChange();
-
-    </script>
-</body>
-
-</html>
+                        <span class="badge" style="
