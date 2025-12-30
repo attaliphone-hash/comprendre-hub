@@ -791,28 +791,19 @@
     </div>
 
     <script>
-        // --- CONFIGURATION DES SERVEURS CLOUD RUN ---
+        // --- CONFIGURATION DES SERVEURS ---
 
-        // Les URLs de tes deux applications déployées
+        // C'est l'application UNIQUE pour le Grand Public (qui contient tous les agents)
         const URL_PRINCIPALE = 'https://assistant-citoyen-46500853340.europe-west1.run.app';
-        const URL_SOCIAL = 'https://social-2026-46500853340.europe-west1.run.app';
 
-        // --- MAPPING DES AGENTS ---
+        // --- NAVIGATION UNIFIÉE ---
         function getAppUrl(category) {
-            // Liste des sujets gérés par le NOUVEL expert Social (Social2026)
-            const sujetsSocial = ['paie', 'chomage', 'sante', 'autonomie', 'retraite'];
-
-            if (sujetsSocial.includes(category)) {
-                // On dirige vers le serveur Social
-                return `${URL_SOCIAL}/?embed=true`;
-            } else {
-                // Pour le reste (Impôts, Divorce, Logement, Conso...), on garde l'assistant principal
-                // On ajoute ?cat=category pour qu'il ouvre directement le bon onglet
-                return `${URL_PRINCIPALE}/?cat=${category}&embed=true`;
-            }
+            // QUEL QUE SOIT le sujet cliqué, on envoie vers l'Assistant Citoyen
+            // On ajoute ?cat=category pour ouvrir directement le bon onglet (Paie, Impôts, etc.)
+            return `${URL_PRINCIPALE}/?cat=${category}&embed=true`;
         }
 
-        // --- NAVIGATION (Ne pas toucher) ---
+        // --- FONCTIONS SYSTÈME (Ne pas toucher) ---
         function goHome(event) {
             if (event) event.preventDefault();
             history.pushState("", document.title, window.location.pathname + window.location.search);
@@ -822,7 +813,7 @@
         function handleLocationChange() {
             const hash = window.location.hash.slice(1);
 
-            // Liste de toutes les ancres valides sur ton site
+            // Liste de toutes les ancres valides
             const validCategories = [
                 'paie', 'impots', 'caf', 'chomage', 'logement',
                 'banque', 'conso', 'sante', 'divorce', 'autonomie'
@@ -846,6 +837,7 @@
             const url = getAppUrl(category);
 
             const frame = document.getElementById('app-frame');
+            // On évite de recharger si on est déjà sur la bonne app
             if (frame.src !== url) {
                 frame.src = url;
             }
