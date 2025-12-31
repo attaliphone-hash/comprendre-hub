@@ -21,8 +21,11 @@
         :root {
             --bg-color: #f8fafc;
             --text-main: #1e293b;
+            --text-soft: #000000;
             --card-bg: #ffffff;
             --primary: #2563eb;
+            --header-h-desktop: 110px;
+            --header-h-mobile: 70px;
         }
 
         body {
@@ -37,30 +40,54 @@
             overflow: hidden;
         }
 
+        /* --- HEADER FIXE POUR TOUT LE MONDE --- */
         header {
             background: white;
-            padding: 10px 1.5rem;
+            padding: 0 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #e2e8f0;
-            height: 110px;
-            z-index: 1000;
-            position: relative;
+            height: var(--header-h-desktop);
+            z-index: 9999;
+            /* Priorité maximale */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-sizing: border-box;
         }
 
         .logo-img {
             height: 100px;
             width: auto;
+            display: block;
         }
 
+        /* --- VUE ACCUEIL --- */
         #home-view {
             flex: 1;
             overflow-y: auto;
             padding: 2rem;
+            padding-top: calc(var(--header-h-desktop) + 2rem);
+            /* Laisse la place au header fixe */
             display: flex;
             flex-direction: column;
             align-items: center;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .hero-section {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .cards-container {
@@ -69,7 +96,7 @@
             gap: 20px;
             width: 100%;
             max-width: 1400px;
-            padding-bottom: 40px;
+            padding-bottom: 60px;
         }
 
         .card {
@@ -79,8 +106,9 @@
             border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s;
+            min-height: 320px;
             position: relative;
+            transition: transform 0.2s;
         }
 
         .card:hover {
@@ -89,7 +117,7 @@
         }
 
         .card-image {
-            height: 160px;
+            height: 150px;
             background-size: cover;
             background-position: center;
         }
@@ -97,6 +125,8 @@
         .card-content {
             padding: 1.2rem;
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-main-link::after {
@@ -116,18 +146,19 @@
             border-radius: 4px;
             background: #dcfce7;
             color: #064e3b;
-            margin-bottom: 8px;
-            display: inline-block;
+            margin-bottom: 10px;
+            align-self: flex-start;
         }
 
+        /* --- VUE APPLICATION --- */
         #app-view {
             display: none;
             position: fixed;
-            top: 110px;
+            top: var(--header-h-desktop);
             left: 0;
             width: 100%;
-            height: calc(100% - 110px);
-            z-index: 500;
+            height: calc(100% - var(--header-h-desktop));
+            z-index: 1000;
             background: white;
         }
 
@@ -135,21 +166,31 @@
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
         }
 
+        /* --- AJUSTEMENTS MOBILES STRICTS --- */
         @media (max-width: 600px) {
             header {
-                height: 70px;
-                padding: 5px 1rem;
+                height: var(--header-h-mobile) !important;
+                padding: 0 1rem !important;
             }
 
             .logo-img {
-                height: 50px;
+                height: 50px !important;
+            }
+
+            #home-view {
+                padding-top: calc(var(--header-h-mobile) + 1rem) !important;
             }
 
             #app-view {
-                top: 70px;
-                height: calc(100dvh - 70px);
+                top: var(--header-h-mobile) !important;
+                height: calc(100dvh - var(--header-h-mobile)) !important;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -161,16 +202,25 @@
             <img src="logo_new.png" alt="Logo" class="logo-img">
         </a>
         <button id="back-btn"
-            style="display:none; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; cursor: pointer;"
+            style="display:none; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; font-weight: 600; cursor: pointer; font-size: 14px;"
             onclick="goHome(event)">
             ← Retour
         </button>
     </header>
 
     <div id="home-view">
-        <div style="text-align:center; max-width:800px; margin-bottom:40px;">
-            <h1>Vos droits en situations quotidiennes</h1>
-            <p>Sélectionnez un expert pour obtenir des réponses fiables basées sur les sources officielles.</p>
+        <div class="hero-section">
+            <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
+            <p style="color: #000000; line-height: 1.6; font-size: 1.1rem; font-weight: 600;">
+                Ne perdez plus de temps à chercher des réponses éparpillées sur Internet. Ici, vous trouverez toutes les
+                réponses administratives à vos questions à chaque étape de votre vie.
+            </p>
+            <p style="color: #4b5563; font-size: 0.9rem;">
+                Nos agents IA analysent votre situation et fournissent des réponses fiables basées uniquement sur des
+                <strong>sources officielles</strong>.
+            </p>
+            <p style="margin-top: 30px; font-weight: 800; color: var(--primary);">👇 Sélectionnez votre expert
+                ci-dessous :</p>
         </div>
 
         <div class="cards-container">
@@ -188,7 +238,7 @@
 
             <div class="card">
                 <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80');">
+                    style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
                 </div>
                 <div class="card-content">
                     <span class="badge">✅ DGFiP 2025</span>
@@ -287,10 +337,21 @@
                     style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="badge">✅ CNAV 2025</span>
+                    <span class="badge">✅ APA / SENIOR</span>
                     <h3><a href="#autonomie" class="card-main-link"
                             style="text-decoration:none; color:inherit;">Retraite & Senior</a></h3>
                     <p>Calcul de droits, ASPA et gestion de l'autonomie.</p>
+                </div>
+            </div>
+
+            <div class="card" style="opacity: 0.6; filter: grayscale(1);">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge" style="background:#f1f5f9; color: #64748b;">🚧 EN ATTENTE</span>
+                    <h3>Ma Retraite</h3>
+                    <p>L'expert est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.</p>
                 </div>
             </div>
         </div>
@@ -305,11 +366,15 @@
 
         function handleHash() {
             const h = window.location.hash.slice(1);
-            if (h) {
+            const valid = ['paie', 'impots', 'caf', 'chomage', 'logement', 'banque', 'conso', 'sante', 'divorce', 'autonomie'];
+
+            if (h && valid.includes(h)) {
                 document.getElementById('home-view').style.display = 'none';
                 document.getElementById('app-view').style.display = 'block';
                 document.getElementById('back-btn').style.display = 'block';
-                document.getElementById('app-frame').src = `${URL_APP}/?cat=${h}&embed=true`;
+                const frame = document.getElementById('app-frame');
+                const targetUrl = `${URL_APP}/?cat=${h}&embed=true`;
+                if (frame.src !== targetUrl) frame.src = targetUrl;
             } else {
                 goHome();
             }
