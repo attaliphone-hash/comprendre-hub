@@ -120,7 +120,6 @@
             height: 110px;
             box-sizing: border-box;
             position: relative;
-            /* FIX MOBILE : Permet au header de rester au-dessus de l'iframe */
         }
 
         .logo {
@@ -225,7 +224,7 @@
             padding-bottom: 20px;
         }
 
-        /* --- CARTES (NOUVELLE STRUCTURE SEO) --- */
+        /* --- CARTES --- */
         .card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -422,7 +421,7 @@
             padding: 5px;
         }
 
-        /* --- IFRAME (Fix Mobile) --- */
+        /* --- IFRAME --- */
         #app-view {
             display: none;
             position: fixed;
@@ -441,23 +440,28 @@
             display: block;
         }
 
-        /* Mobile Adjustments */
+        /* --- MOBILE ADJUSTMENTS (GOLDEN VERSION) --- */
         @media (max-width: 600px) {
             .hero-section h1 {
                 font-size: 1.8rem;
             }
 
             header {
-                padding: 5px 1rem;
-                height: 70px;
-                position: relative;
-                z-index: 20;
+                padding: 5px 1rem !important;
+                height: 70px !important;
+                position: relative !important;
+                z-index: 100 !important;
             }
 
-            /* AJOUTEZ CE BLOC ICI 👇 */
             #app-view {
+                position: fixed !important;
                 top: 70px !important;
-                height: calc(100% - 70px) !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: calc(100vh - 70px) !important;
+                z-index: 50 !important;
+                display: none;
+                /* Conservé masqué jusqu'à activation par le script */
             }
 
             .logo-img {
@@ -513,18 +517,10 @@
                 <p
                     style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #000000; line-height: 1.6; font-size: 1.0rem;">
                     <strong>Ne perdez plus de temps à chercher des réponses éparpillées sur Internet. Ici, vous
-                        trouverez toutes
-                        les réponses administratives à vos questions à chaque étape de votre vie.</strong>
+                        trouverez toutes les réponses administratives à vos questions.</strong>
                     <br>
-                    Nos agents IA analysent votre situation et vous fournissent des réponses claires, fiables,
-                    uniquement basées sur des
+                    Nos agents IA analysent votre situation et fournissent des réponses fiables basées sur des
                     <strong>sources officielles.</strong>
-                </p>
-
-                <p
-                    style="text-align: center; font-size: 0.70rem; color: #000000; margin-top: 5px; margin-bottom: 30px;">
-                    <em>(Droit du travail, Droit du logement, Droit de la famille, Droits sociaux, Fiscalité,
-                        Autonomie)</em>
                 </p>
 
                 <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
@@ -540,13 +536,11 @@
                     <div class="card-content">
                         <span class="badge">✅ Vérifié URSSAF 2025</span>
                         <h2><a href="#paie" class="card-main-link">Ma Paie Expliquée</a></h2>
-                        <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales et prélèvement à la
-                            source.</p>
+                        <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales.</p>
                         <details>
                             <summary>En savoir plus</summary>
                             <div class="seo-text">
-                                Vérifiez votre salaire net imposable 2025, le calcul du SMIC horaire, vos heures
-                                supplémentaires défiscalisées et le montant de vos cotisations CSG/CRDS.
+                                Vérifiez votre salaire net imposable 2025 et le montant de vos cotisations.
                             </div>
                         </details>
                     </div>
@@ -559,12 +553,11 @@
                     <div class="card-content">
                         <span class="badge">✅ Source DGFiP 2025</span>
                         <h2><a href="#impots" class="card-main-link">Mes Impôts 2025</a></h2>
-                        <p>Décryptez votre avis d'imposition, calculez vos parts fiscales et validez vos réductions.</p>
+                        <p>Décryptez votre avis d'imposition et calculez vos parts fiscales.</p>
                         <details>
                             <summary>En savoir plus</summary>
                             <div class="seo-text">
-                                Aide pour la déclaration de revenus 2025 : calcul du quotient familial, crédits d'impôt,
-                                frais réels et dates limites de paiement.
+                                Aide pour la déclaration de revenus 2025 : calcul du quotient familial.
                             </div>
                         </details>
                     </div>
@@ -577,12 +570,11 @@
                     <div class="card-content">
                         <span class="badge">✅ Barèmes CAF 2025</span>
                         <h2><a href="#caf" class="card-main-link">Mes Aides Sociales</a></h2>
-                        <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL selon les dernières règles.</p>
+                        <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL.</p>
                         <details>
                             <summary>En savoir plus</summary>
                             <div class="seo-text">
-                                Simulation des montants RSA socle 2025, plafonds de ressources pour la Prime d'Activité
-                                et calcul des aides au logement (APL/ALS) CAF et MSA.
+                                Simulation des montants RSA socle 2025 et plafonds de ressources.
                             </div>
                         </details>
                     </div>
@@ -595,13 +587,11 @@
                     <div class="card-content">
                         <span class="badge">✅ Règles France Travail</span>
                         <h2><a href="#chomage" class="card-main-link">Mon Chômage</a></h2>
-                        <p>Comprenez le calcul de votre ARE, les délais de carence et les règles pour les intermittents.
-                        </p>
+                        <p>Comprenez le calcul de votre ARE et les délais de carence.</p>
                         <details>
                             <summary>En savoir plus</summary>
                             <div class="seo-text">
-                                Droits après rupture conventionnelle, calcul de l'Allocation de Retour à l'Emploi (ARE),
-                                différé d'indemnisation et actualisation France Travail.
+                                Droits après rupture conventionnelle et calcul de l'indemnisation.
                             </div>
                         </details>
                     </div>
@@ -614,69 +604,11 @@
                     <div class="card-content">
                         <span class="badge">✅ Loi 89 & ALUR</span>
                         <h2><a href="#logement" class="card-main-link">Mon Logement</a></h2>
-                        <p>Locataire ou propriétaire ? Dépôt de garantie, préavis de départ, réparations et gestion des
-                            conflits.</p>
+                        <p>Dépôt de garantie, préavis de départ, réparations.</p>
                         <details>
                             <summary>En savoir plus</summary>
                             <div class="seo-text">
-                                Modèles de lettre de préavis (zone tendue), restitution du dépôt de garantie, grille de
-                                vétusté et recours en cas de logement insalubre.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Code Monétaire</span>
-                        <h2><a href="#banque" class="card-main-link">Ma Banque</a></h2>
-                        <p>Frais abusifs, fraude carte bancaire, droit au compte et crédit conso : faites respecter vos
-                            droits.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Remboursement fraude bancaire (phishing), plafonnement des frais d'incident, procédure
-                                de droit au compte et délais de rétractation crédit.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi Hamon & Garanties</span>
-                        <h2><a href="#conso" class="card-main-link">Ma Conso & Litiges</a></h2>
-                        <p>Achats internet, colis non reçus, garanties pannes et résiliation facile de vos abonnements.
-                        </p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Garantie légale de conformité (2 ans), droit de rétractation (14 jours), résiliation loi
-                                Hamon et médiation consommation.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Barèmes Sécu 2025</span>
-                        <h2><a href="#sante" class="card-main-link">Ma Santé & La Sécu</a></h2>
-                        <p>Remboursements médicaux, arrêts de travail (IJSS), Mutuelle Solidaire (C2S) et ALD.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Plafonds Complémentaire Santé Solidaire (C2S), calcul des Indemnités Journalières
-                                (IJSS), prise en charge ALD 100% et arrêt maladie.
+                                Modèles de lettre de préavis et restitution du dépôt de garantie.
                             </div>
                         </details>
                     </div>
@@ -689,44 +621,13 @@
                     <div class="card-content">
                         <span class="badge">✅ Code Civil</span>
                         <h2><a href="#divorce" class="card-main-link">Mon Divorce</a></h2>
-                        <p>Pension alimentaire, garde alternée, prestation compensatoire et procédure de séparation.</p>
+                        <p>Pension alimentaire, garde alternée et procédure de séparation.</p>
                         <details>
                             <summary>En savoir plus</summary>
                             <div class="seo-text">
-                                Divorce par consentement mutuel sans juge, calcul de la pension alimentaire 2025, droit
-                                de visite et hébergement, prestation compensatoire.
+                                Divorce par consentement mutuel et calcul de la pension 2025.
                             </div>
                         </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi Grand Âge & APA</span>
-                        <h2><a href="#autonomie" class="card-main-link">Autonomie & Aidants</a></h2>
-                        <p>Droits en EHPAD, calcul de l'APA, obligation alimentaire et statut de proche aidant.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Montants APA (GIR 1-4) à domicile et en établissement, déduction fiscale EHPAD,
-                                obligation alimentaire des enfants et congé de proche aidant.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card" style="opacity: 0.6; cursor: default; border-style: dashed;">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=600&q=80'); filter: grayscale(100%);">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge" style="background-color: #f1f5f9; color: #64748b;">🚧 En construction</span>
-                        <h2>Ma Retraite</h2>
-                        <p>L'assistant est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -734,19 +635,11 @@
 
         <footer>
             <div class="footer-content">
-                <div style="border-bottom: 1px solid #e5e7eb; padding-bottom: 15px; margin-bottom: 15px;">
-                    <p style="margin: 0; font-size: 0.65em; color: #000000; max-width: 800px; margin: 0 auto;">
-                        <strong>Information :</strong> Bien que nos agents s'appuient sur des sources officielles mises
-                        à jour (2025), les réponses sont fournies à titre informatif et ne valent pas consultation
-                        juridique professionnelle.
-                    </p>
-                </div>
                 <div class="copyright">
                     © 2025 Comprendre Mes Droits. Tous droits réservés.
                 </div>
                 <div class="footer-links">
                     <button onclick="toggleModal()">Mentions Légales & Contact</button>
-                    <a href="https://www.linkedin.com/in/sylvain-attal-295720112/" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </footer>
@@ -755,45 +648,8 @@
     <div id="legal-modal" class="modal-overlay" onclick="toggleModal()">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="close-modal" onclick="toggleModal()">&times;</button>
-
             <h2>Informations & Contact</h2>
-
-            <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <h3 style="margin-top:0;">📬 Me Contacter</h3>
-                <p>Une question, une suggestion ou un bug ?</p>
-                <p><strong>Email :</strong> <a
-                        href="mailto:contact@comprendre-mes-droits.fr">contact@comprendre-mes-droits.fr</a></p>
-                <p><strong>Réseau Pro :</strong> <a href="https://www.linkedin.com/in/sylvain-attal-295720112/"
-                        target="_blank">Mon profil LinkedIn</a></p>
-            </div>
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
-
-            <h3>Mentions Légales</h3>
-
-            <h4>Éditeur du site</h4>
-            <p>Ce site est édité à titre personnel par <strong>Sylvain Attal</strong>.</p>
-
-            <h4>Hébergement</h4>
-            <p>
-                Le site est hébergé par <strong>GitHub Pages</strong> (Code source) et <strong>Streamlit Cloud</strong>
-                (Calcul IA).<br>
-                Les données transitent par les serveurs sécurisés de Google Cloud (API Gemini).
-            </p>
-
-            <h4>Propriété Intellectuelle & Responsabilité</h4>
-            <p>
-                Ce site est un projet de démonstration technologique ("Proof of Concept").<br>
-                Bien que basées sur des sources officielles, les informations fournies par l'IA sont données à titre
-                indicatif et ne remplacent pas un avis juridique professionnel ou une décision officielle de
-                l'administration.
-            </p>
-
-            <h4>Données Personnelles</h4>
-            <p>
-                Aucune donnée personnelle nominative n'est conservée par l'éditeur du site.<br>
-                Les conversations avec l'assistant sont anonymes et ne servent qu'à la session en cours.
-            </p>
+            <p><strong>Email :</strong> contact@comprendre-mes-droits.fr</p>
         </div>
     </div>
 
@@ -802,33 +658,21 @@
     </div>
 
     <script>
-        // --- CONFIGURATION DES SERVEURS ---
-
-        // C'est l'application UNIQUE pour le Grand Public (qui contient tous les agents)
         const URL_PRINCIPALE = 'https://assistant-citoyen-46500853340.europe-west1.run.app';
 
-        // --- NAVIGATION UNIFIÉE ---
         function getAppUrl(category) {
-            // QUEL QUE SOIT le sujet cliqué, on envoie vers l'Assistant Citoyen
-            // On ajoute ?cat=category pour ouvrir directement le bon onglet (Paie, Impôts, etc.)
             return `${URL_PRINCIPALE}/?cat=${category}&embed=true`;
         }
 
-        // --- FONCTIONS SYSTÈME (Ne pas toucher) ---
         function goHome(event) {
             if (event) event.preventDefault();
-            history.pushState("", document.title, window.location.pathname + window.location.search);
+            window.location.hash = "";
             showHomeView();
         }
 
         function handleLocationChange() {
             const hash = window.location.hash.slice(1);
-
-            // Liste de toutes les ancres valides
-            const validCategories = [
-                'paie', 'impots', 'caf', 'chomage', 'logement',
-                'banque', 'conso', 'sante', 'divorce', 'autonomie'
-            ];
+            const validCategories = ['paie', 'impots', 'caf', 'chomage', 'logement', 'divorce'];
 
             if (hash && validCategories.includes(hash)) {
                 showAppView(hash);
@@ -846,33 +690,21 @@
 
         function showAppView(category) {
             const url = getAppUrl(category);
-
             const frame = document.getElementById('app-frame');
-            // On évite de recharger si on est déjà sur la bonne app
-            if (frame.src !== url) {
-                frame.src = url;
-            }
+            if (frame.src !== url) frame.src = url;
 
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('app-view').style.display = 'block';
             document.getElementById('back-btn').style.display = 'flex';
         }
 
-        // --- GESTION DE LA MODALE ---
         function toggleModal() {
             const modal = document.getElementById('legal-modal');
-            if (modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            } else {
-                modal.style.display = 'flex';
-            }
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
         window.addEventListener('hashchange', handleLocationChange);
-
-        // Au chargement initial
         handleLocationChange();
-
     </script>
 </body>
 
