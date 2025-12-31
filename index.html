@@ -11,87 +11,18 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Comprendre Mes Droits - Le Portail Citoyen</title>
-    <meta name="description"
-        content="Assistant juridique gratuit par IA. Obtenez des réponses immédiates et fiables sur vos Impôts 2025, Divorce, Aides CAF, Santé, Chômage, Logement et Autonomie.">
-    <meta name="keywords"
-        content="impôts 2025, simulation divorce, aides caf, droits chômage, assistant juridique ia, avocat gratuit, conseil juridique en ligne, droits santé, ehpad, apa">
-    <meta name="author" content="Comprendre Mes Droits">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.comprendre-mes-droits.fr/">
-    <meta property="og:title" content="Comprendre Mes Droits - L'Assistant Juridique Citoyen & Gratuit">
-    <meta property="og:description"
-        content="Impôts 2025, Paie, Logement, Santé, Divorce, Autonomie... Obtenez des réponses immédiates et fiables basées à 100% sur les sources officielles.">
-
-    <meta property="og:image" content="https://www.comprendre-mes-droits.fr/social_preview.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Comprendre Mes Droits - Assistant IA Gratuit">
-    <meta name="twitter:description"
-        content="Vos réponses administratives immédiates (Impôts, Logement, Santé...). Sources officielles 2025.">
-    <meta name="twitter:image" content="https://www.comprendre-mes-droits.fr/social_preview.png">
 
     <link rel="icon" href="favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Comment vérifier mon bulletin de salaire et mes cotisations sociales en 2025 ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Utilisez l'assistant 'Ma Paie Expliquée' pour décoder chaque ligne de votre bulletin : salaire brut, net à payer, prélèvement à la source et cotisations sociales. Nos calculs sont basés sur les règles validées par l'URSSAF pour 2025."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Comment calculer mes impôts 2025 ou vérifier mon avis d'imposition ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "L'outil 'Mes Impôts 2025' vous aide à décrypter votre avis d'imposition, vérifier votre nombre de parts fiscales et valider vos réductions d'impôt en s'appuyant sur les sources officielles de la DGFiP."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Quels sont les barèmes de la CAF en 2025 pour le RSA et la Prime d'Activité ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Notre module 'Mes Aides Sociales' intègre les derniers barèmes de la CAF et de la MSA mis à jour en 2025. Vous pouvez estimer vos droits au RSA, à la Prime d'Activité et aux APL instantanément."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Comment est calculée la pension alimentaire ou la prestation compensatoire lors d'un divorce ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "L'assistant 'Mon Divorce' se base sur le Code Civil et les barèmes de référence pour vous aider à comprendre le calcul de la pension alimentaire, les modalités de garde alternée et les procédures de séparation."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Quels sont mes droits au chômage et comment est calculée l'ARE ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Avec le module 'Mon Chômage', comprenez le calcul de votre Allocation de Retour à l'Emploi (ARE), les délais de carence et les règles spécifiques (cadres, intermittents) basées sur la réglementation France Travail."
-        }
-      }]
-    }
-    </script>
-
     <style>
-        /* --- DESIGN SYSTEM --- */
         :root {
             --bg-color: #f8fafc;
             --text-main: #1e293b;
-            --text-soft: #000000;
             --card-bg: #ffffff;
             --primary: #2563eb;
-            --success: #16a34a;
         }
 
         body {
@@ -104,10 +35,8 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- HEADER --- */
         header {
             background: white;
             padding: 10px 1.5rem;
@@ -115,116 +44,34 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #e2e8f0;
-            flex-shrink: 0;
-            z-index: 20;
             height: 110px;
-            box-sizing: border-box;
+            z-index: 1000;
             position: relative;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            line-height: 1;
         }
 
         .logo-img {
             height: 100px;
             width: auto;
-            border-radius: 0;
         }
 
-        .header-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .header-btn {
-            padding: 8px;
-            background-color: white;
-            border: 1px solid #e2e8f0;
-            color: var(--text-main);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            height: 36px;
-            width: 36px;
-        }
-
-        .header-btn:hover {
-            background-color: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-
-        #back-btn {
-            display: none;
-            width: auto;
-            padding: 0 12px;
-            gap: 6px;
-        }
-
-        /* --- ACCUEIL (SCROLLABLE) --- */
         #home-view {
             flex: 1;
             overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        main.content-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 2rem;
-            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .hero-section {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            margin-top: 1rem;
-        }
-
-        .hero-section h1 {
-            font-size: 2.7rem;
-            margin: 0 0 1rem 0;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .hero-section p {
-            color: var(--text-soft);
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        /* --- GRID CARTES --- */
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             width: 100%;
             max-width: 1400px;
-            padding-bottom: 20px;
+            padding-bottom: 40px;
         }
 
-        /* --- CARTES --- */
         .card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -232,22 +79,24 @@
             border: 1px solid #e2e8f0;
             display: flex;
             flex-direction: column;
-            min-height: 350px;
+            transition: transform 0.2s;
             position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        @media (hover: hover) {
-            .card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
-                border-color: var(--primary);
-            }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
         }
 
-        .card-main-link {
-            text-decoration: none;
-            color: inherit;
+        .card-image {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+            flex: 1;
         }
 
         .card-main-link::after {
@@ -260,176 +109,25 @@
             z-index: 1;
         }
 
-        .card-image {
-            height: 140px;
-            background-color: #cbd5e1;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-content {
-            padding: 1.2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
         .badge {
-            display: inline-flex;
-            align-items: center;
             font-size: 0.7rem;
-            text-transform: uppercase;
             font-weight: 700;
-            color: #064e3b;
-            background-color: #dcfce7;
             padding: 3px 6px;
             border-radius: 4px;
-            margin-bottom: 0.6rem;
-            align-self: flex-start;
+            background: #dcfce7;
+            color: #064e3b;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
-        .card h2 {
-            margin: 0 0 0.4rem 0;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .card p {
-            margin: 0;
-            color: var(--text-soft);
-            font-size: 0.9rem;
-            line-height: 1.45;
-        }
-
-        /* --- ACCORDÉON SEO --- */
-        details {
-            margin-top: auto;
-            padding-top: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        summary {
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
-            cursor: pointer;
-            list-style: none;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary:after {
-            content: "+";
-            float: right;
-            font-weight: bold;
-        }
-
-        details[open] summary:after {
-            content: "-";
-        }
-
-        .seo-text {
-            font-size: 0.8rem;
-            color: #4b5563;
-            margin-top: 8px;
-            line-height: 1.4;
-            background-color: #f8fafc;
-            padding: 8px;
-            border-radius: 6px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            width: 100%;
-            background-color: white;
-            border-top: 1px solid #e2e8f0;
-            padding: 2rem 0;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .footer-links a,
-        .footer-links button {
-            color: var(--text-soft);
-            text-decoration: none;
-            font-size: 0.9rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            font-family: inherit;
-        }
-
-        /* --- MODALE --- */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            box-sizing: border-box;
-            backdrop-filter: blur(2px);
-        }
-
-        .modal {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-soft);
-            padding: 5px;
-        }
-
-        /* --- IFRAME --- */
         #app-view {
             display: none;
             position: fixed;
-            top: 70px;
+            top: 110px;
             left: 0;
             width: 100%;
-            height: calc(100% - 70px);
-            z-index: 5;
+            height: calc(100% - 110px);
+            z-index: 500;
             background: white;
         }
 
@@ -437,46 +135,21 @@
             width: 100%;
             height: 100%;
             border: none;
-            display: block;
         }
 
-        /* --- MOBILE ADJUSTMENTS (GOLDEN VERSION) --- */
         @media (max-width: 600px) {
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
-
             header {
-                padding: 5px 1rem !important;
-                height: 70px !important;
-                position: relative !important;
-                z-index: 100 !important;
-            }
-
-            #app-view {
-                position: fixed !important;
-                top: 70px !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: calc(100vh - 70px) !important;
-                z-index: 50 !important;
-                display: none;
-                /* Conservé masqué jusqu'à activation par le script */
+                height: 70px;
+                padding: 5px 1rem;
             }
 
             .logo-img {
-                height: 50px !important;
-                max-width: 100%;
-                object-fit: contain;
+                height: 50px;
             }
 
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
+            #app-view {
+                top: 70px;
+                height: calc(100dvh - 70px);
             }
         }
     </style>
@@ -484,172 +157,142 @@
 
 <body>
     <header>
-        <a href="#" class="logo" onclick="goHome(event)">
-            <img src="logo_new.png" alt="Logo Comprendre Mes Droits" class="logo-img" width="288" height="100">
+        <a href="#" onclick="goHome(event)">
+            <img src="logo_new.png" alt="Logo" class="logo-img">
         </a>
-
-        <div class="header-actions">
-            <button class="header-btn" onclick="toggleModal()" aria-label="Menu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
-
-            <a id="back-btn" class="header-btn" href="#" onclick="goHome(event)">
-                <svg width="18" height="18" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
-                    style="fill:none; stroke:currentColor; stroke-width:2;">
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span style="font-size: 0.85rem;">Retour à l'accueil</span>
-            </a>
-        </div>
+        <button id="back-btn"
+            style="display:none; padding: 8px 15px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; cursor: pointer;"
+            onclick="goHome(event)">
+            ← Retour
+        </button>
     </header>
 
     <div id="home-view">
-        <main class="content-wrapper">
-            <div class="hero-section">
-                <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
-                <br><br>
-                <p
-                    style="text-align: center; max-width: 800px; margin: 10px auto 10px auto; color: #000000; line-height: 1.6; font-size: 1.0rem;">
-                    <strong>Ne perdez plus de temps à chercher des réponses éparpillées sur Internet. Ici, vous
-                        trouverez toutes les réponses administratives à vos questions.</strong>
-                    <br>
-                    Nos agents IA analysent votre situation et fournissent des réponses fiables basées sur des
-                    <strong>sources officielles.</strong>
-                </p>
+        <div style="text-align:center; max-width:800px; margin-bottom:40px;">
+            <h1>Vos droits en situations quotidiennes</h1>
+            <p>Sélectionnez un expert pour obtenir des réponses fiables basées sur les sources officielles.</p>
+        </div>
 
-                <p style="text-align: center; margin-bottom: 40px; color: #4b5563;">
-                    👇 <strong>Sélectionnez votre expert ci-dessous :</strong>
-                </p>
-            </div>
-
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Vérifié URSSAF 2025</span>
-                        <h2><a href="#paie" class="card-main-link">Ma Paie Expliquée</a></h2>
-                        <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Vérifiez votre salaire net imposable 2025 et le montant de vos cotisations.
-                            </div>
-                        </details>
-                    </div>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80');">
                 </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Source DGFiP 2025</span>
-                        <h2><a href="#impots" class="card-main-link">Mes Impôts 2025</a></h2>
-                        <p>Décryptez votre avis d'imposition et calculez vos parts fiscales.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Aide pour la déclaration de revenus 2025 : calcul du quotient familial.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Barèmes CAF 2025</span>
-                        <h2><a href="#caf" class="card-main-link">Mes Aides Sociales</a></h2>
-                        <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Simulation des montants RSA socle 2025 et plafonds de ressources.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Règles France Travail</span>
-                        <h2><a href="#chomage" class="card-main-link">Mon Chômage</a></h2>
-                        <p>Comprenez le calcul de votre ARE et les délais de carence.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Droits après rupture conventionnelle et calcul de l'indemnisation.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Loi 89 & ALUR</span>
-                        <h2><a href="#logement" class="card-main-link">Mon Logement</a></h2>
-                        <p>Dépôt de garantie, préavis de départ, réparations.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Modèles de lettre de préavis et restitution du dépôt de garantie.
-                            </div>
-                        </details>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"
-                        style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80');">
-                    </div>
-                    <div class="card-content">
-                        <span class="badge">✅ Code Civil</span>
-                        <h2><a href="#divorce" class="card-main-link">Mon Divorce</a></h2>
-                        <p>Pension alimentaire, garde alternée et procédure de séparation.</p>
-                        <details>
-                            <summary>En savoir plus</summary>
-                            <div class="seo-text">
-                                Divorce par consentement mutuel et calcul de la pension 2025.
-                            </div>
-                        </details>
-                    </div>
+                <div class="card-content">
+                    <span class="badge">✅ URSSAF 2025</span>
+                    <h3><a href="#paie" class="card-main-link" style="text-decoration:none; color:inherit;">Ma Paie
+                            Expliquée</a></h3>
+                    <p>Décodez chaque ligne de votre bulletin : brut, net et cotisations.</p>
                 </div>
             </div>
-        </main>
 
-        <footer>
-            <div class="footer-content">
-                <div class="copyright">
-                    © 2025 Comprendre Mes Droits. Tous droits réservés.
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80');">
                 </div>
-                <div class="footer-links">
-                    <button onclick="toggleModal()">Mentions Légales & Contact</button>
+                <div class="card-content">
+                    <span class="badge">✅ DGFiP 2025</span>
+                    <h3><a href="#impots" class="card-main-link" style="text-decoration:none; color:inherit;">Mes Impôts
+                            2025</a></h3>
+                    <p>Décryptez votre avis d'imposition et calculez vos parts fiscales.</p>
                 </div>
             </div>
-        </footer>
-    </div>
 
-    <div id="legal-modal" class="modal-overlay" onclick="toggleModal()">
-        <div class="modal" onclick="event.stopPropagation()">
-            <button class="close-modal" onclick="toggleModal()">&times;</button>
-            <h2>Informations & Contact</h2>
-            <p><strong>Email :</strong> contact@comprendre-mes-droits.fr</p>
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ CAF 2025</span>
+                    <h3><a href="#caf" class="card-main-link" style="text-decoration:none; color:inherit;">Mes Aides
+                            Sociales</a></h3>
+                    <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ FRANCE TRAVAIL</span>
+                    <h3><a href="#chomage" class="card-main-link" style="text-decoration:none; color:inherit;">Mon
+                            Chômage</a></h3>
+                    <p>Comprenez le calcul de votre ARE et vos droits au chômage.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ LOI 89 / ALUR</span>
+                    <h3><a href="#logement" class="card-main-link" style="text-decoration:none; color:inherit;">Mon
+                            Logement</a></h3>
+                    <p>Gestion des cautions, préavis et litiges locatifs.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ CODE MONÉTAIRE</span>
+                    <h3><a href="#banque" class="card-main-link" style="text-decoration:none; color:inherit;">Ma
+                            Banque</a></h3>
+                    <p>Frais abusifs, fraude carte bancaire et droit au compte.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ LOI HAMON</span>
+                    <h3><a href="#conso" class="card-main-link" style="text-decoration:none; color:inherit;">Ma Conso &
+                            Litiges</a></h3>
+                    <p>Achats en ligne, garanties et résiliation de contrats.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ AMELI 2025</span>
+                    <h3><a href="#sante" class="card-main-link" style="text-decoration:none; color:inherit;">Ma Santé &
+                            Sécu</a></h3>
+                    <p>Remboursements, IJSS et Mutuelle Solidaire (C2S).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ CODE CIVIL</span>
+                    <h3><a href="#divorce" class="card-main-link" style="text-decoration:none; color:inherit;">Mon
+                            Divorce</a></h3>
+                    <p>Pension alimentaire, garde d'enfants et procédures.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ CNAV 2025</span>
+                    <h3><a href="#autonomie" class="card-main-link"
+                            style="text-decoration:none; color:inherit;">Retraite & Senior</a></h3>
+                    <p>Calcul de droits, ASPA et gestion de l'autonomie.</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -658,53 +301,31 @@
     </div>
 
     <script>
-        const URL_PRINCIPALE = 'https://assistant-citoyen-46500853340.europe-west1.run.app';
+        const URL_APP = 'https://assistant-citoyen-46500853340.europe-west1.run.app';
 
-        function getAppUrl(category) {
-            return `${URL_PRINCIPALE}/?cat=${category}&embed=true`;
-        }
-
-        function goHome(event) {
-            if (event) event.preventDefault();
-            window.location.hash = "";
-            showHomeView();
-        }
-
-        function handleLocationChange() {
-            const hash = window.location.hash.slice(1);
-            const validCategories = ['paie', 'impots', 'caf', 'chomage', 'logement', 'divorce'];
-
-            if (hash && validCategories.includes(hash)) {
-                showAppView(hash);
+        function handleHash() {
+            const h = window.location.hash.slice(1);
+            if (h) {
+                document.getElementById('home-view').style.display = 'none';
+                document.getElementById('app-view').style.display = 'block';
+                document.getElementById('back-btn').style.display = 'block';
+                document.getElementById('app-frame').src = `${URL_APP}/?cat=${h}&embed=true`;
             } else {
-                showHomeView();
+                goHome();
             }
         }
 
-        function showHomeView() {
-            document.getElementById('app-frame').src = "about:blank";
+        function goHome(e) {
+            if (e) e.preventDefault();
+            window.location.hash = "";
+            document.getElementById('home-view').style.display = 'flex';
             document.getElementById('app-view').style.display = 'none';
             document.getElementById('back-btn').style.display = 'none';
-            document.getElementById('home-view').style.display = 'flex';
+            document.getElementById('app-frame').src = "";
         }
 
-        function showAppView(category) {
-            const url = getAppUrl(category);
-            const frame = document.getElementById('app-frame');
-            if (frame.src !== url) frame.src = url;
-
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('app-view').style.display = 'block';
-            document.getElementById('back-btn').style.display = 'flex';
-        }
-
-        function toggleModal() {
-            const modal = document.getElementById('legal-modal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        window.addEventListener('hashchange', handleLocationChange);
-        handleLocationChange();
+        window.addEventListener('hashchange', handleHash);
+        if (window.location.hash) handleHash();
     </script>
 </body>
 
