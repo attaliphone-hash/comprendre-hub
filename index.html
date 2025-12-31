@@ -119,6 +119,8 @@
             z-index: 20;
             height: 110px;
             box-sizing: border-box;
+            position: relative;
+            /* FIX MOBILE : Permet au header de rester au-dessus de l'iframe */
         }
 
         .logo {
@@ -447,10 +449,13 @@
 
             header {
                 padding: 5px 1rem;
+                height: 70px;
+                /* FIX MOBILE : On réduit la hauteur */
             }
 
             .logo-img {
-                height: 75px !important;
+                height: 50px !important;
+                /* FIX MOBILE : On réduit le logo */
                 max-width: 100%;
                 object-fit: contain;
             }
