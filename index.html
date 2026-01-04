@@ -69,19 +69,38 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        /* STYLE DU WORDING D'INTRODUCTION */
         .hero-section {
             text-align: center;
             max-width: 900px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
+            padding: 0 1rem;
         }
 
-        .hero-section h1 {
-            font-size: 2.2rem;
+        .hero-section h2 {
+            font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: -1px;
-            line-height: 1.2;
+            color: #000;
             margin-bottom: 15px;
-            color: #111827;
+            line-height: 1.3;
+        }
+
+        .hero-section p.sub-text {
+            font-size: 1.15rem;
+            color: #000;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .hero-section p.selection-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .cards-container {
@@ -196,6 +215,14 @@
                 top: var(--header-h-mobile) !important;
                 height: calc(100dvh - var(--header-h-mobile)) !important;
             }
+
+            .hero-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .hero-section p.sub-text {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -210,8 +237,11 @@
 
     <div id="home-view">
         <div class="hero-section">
-            <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
-            <p style="font-weight: 600;">Sélectionnez votre expert ci-dessous :</p>
+            <h2>Ne perdez plus de temps à chercher des réponses éparpillées sur Internet. Ici, vous trouverez toutes les
+                réponses administratives à vos questions.</h2>
+            <p class="sub-text">Nos agents IA analysent votre situation et fournissent des réponses fiables basées sur
+                des <strong>sources officielles.</strong></p>
+            <p class="selection-text">👇 Sélectionnez votre expert ci-dessous :</p>
         </div>
 
         <div class="cards-container">
@@ -226,7 +256,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('impots')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
@@ -238,7 +267,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('caf')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
@@ -250,7 +278,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('chomage')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
@@ -262,7 +289,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('logement')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80');">
@@ -274,7 +300,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('banque')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80');">
@@ -286,7 +311,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('conso')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80');">
@@ -298,7 +322,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('sante')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80');">
@@ -310,7 +333,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('divorce')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80');">
@@ -322,7 +344,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" onclick="openApp('autonomie')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
@@ -334,7 +355,6 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-
             <div class="card" style="opacity: 0.6; cursor: not-allowed; filter: grayscale(1);">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
