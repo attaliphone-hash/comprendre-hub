@@ -76,16 +76,18 @@
         }
 
         .hero-section h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 800;
             letter-spacing: -1px;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            color: #111827;
         }
 
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             width: 100%;
             max-width: 1400px;
             padding-bottom: 60px;
@@ -95,42 +97,68 @@
             background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #e5e7eb;
             display: flex;
             flex-direction: column;
-            min-height: 320px;
+            min-height: 380px;
             position: relative;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .card-image {
-            height: 150px;
+            height: 160px;
             background-size: cover;
             background-position: center;
         }
 
         .card-content {
-            padding: 1.2rem;
+            padding: 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
+        .card-content h3 {
+            font-size: 1.25rem;
+            margin: 0 0 0.75rem 0;
+            color: #111827;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
         .badge {
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 3px 6px;
+            padding: 4px 8px;
             border-radius: 4px;
-            background: #dcfce7;
-            color: #064e3b;
-            margin-bottom: 10px;
+            background: #ecfdf5;
+            color: #065f46;
+            margin-bottom: 12px;
             align-self: flex-start;
+            text-transform: uppercase;
+            border: 1px solid #d1fae5;
+        }
+
+        .en-savoir-plus {
+            margin-top: auto;
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         #app-view {
@@ -154,7 +182,6 @@
         @media (max-width: 600px) {
             header {
                 height: var(--header-h-mobile) !important;
-                padding: 0 1rem !important;
             }
 
             .logo-img {
@@ -169,10 +196,6 @@
                 top: var(--header-h-mobile) !important;
                 height: calc(100dvh - var(--header-h-mobile)) !important;
             }
-
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
         }
     </style>
 </head>
@@ -181,16 +204,14 @@
     <header>
         <a href="#" onclick="goHome(event)"><img src="logo_new.png" alt="Logo" class="logo-img"></a>
         <button id="back-btn"
-            style="display:none; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; font-weight: 600; cursor: pointer;"
+            style="display:none; padding: 10px 16px; border-radius: 8px; border: 1px solid #e5e7eb; background: white; font-weight: 700; cursor: pointer;"
             onclick="goHome(event)">← Retour</button>
     </header>
 
     <div id="home-view">
         <div class="hero-section">
             <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
-            <p style="color: #000000; line-height: 1.6; font-size: 1.1rem; font-weight: 600;">Ne perdez plus de temps à
-                chercher des réponses éparpillées sur Internet.</p>
-            <p style="color: #4b5563; font-size: 0.9rem;">Sélectionnez votre expert ci-dessous :</p>
+            <p style="font-weight: 600;">Sélectionnez votre expert ci-dessous :</p>
         </div>
 
         <div class="cards-container">
@@ -198,46 +219,132 @@
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80');">
                 </div>
-                <div class="card-content"><span class="badge">URSSAF 2026</span>
+                <div class="card-content">
+                    <span class="badge">✅ VÉRIFIÉ URSSAF 2025</span>
                     <h3>Ma Paie Expliquée</h3>
-                    <p>Décodez chaque ligne de votre bulletin.</p>
+                    <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('impots')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
                 </div>
-                <div class="card-content"><span class="badge">DGFiP 2026</span>
-                    <h3>Mes Impôts 2026</h3>
-                    <p>Avis d'imposition et calculs de parts.</p>
+                <div class="card-content">
+                    <span class="badge">✅ SOURCE DGFIP 2025</span>
+                    <h3>Mes Impôts 2025</h3>
+                    <p>Décryptez votre avis d'imposition et calculez vos parts fiscales.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('caf')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
                 </div>
-                <div class="card-content"><span class="badge">CAF 2026</span>
+                <div class="card-content">
+                    <span class="badge">✅ BARÈMES CAF 2025</span>
                     <h3>Mes Aides Sociales</h3>
-                    <p>RSA, Prime d'Activité et APL.</p>
+                    <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
+            <div class="card" onclick="openApp('chomage')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ RÈGLES FRANCE TRAVAIL</span>
+                    <h3>Mon Chômage</h3>
+                    <p>Comprenez le calcul de votre ARE et les délais de carence.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
+                </div>
+            </div>
+
+            <div class="card" onclick="openApp('logement')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ LOI 89 & ALUR</span>
+                    <h3>Mon Logement</h3>
+                    <p>Dépôt de garantie, préavis de départ, réparations.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
+                </div>
+            </div>
+
+            <div class="card" onclick="openApp('banque')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ CODE MONÉTAIRE</span>
+                    <h3>Ma Banque</h3>
+                    <p>Frais abusifs, fraude carte bancaire et droit au compte.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
+                </div>
+            </div>
+
+            <div class="card" onclick="openApp('conso')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ LOI HAMON</span>
+                    <h3>Ma Conso & Litiges</h3>
+                    <p>Achats en ligne, garanties et résiliation de contrats.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
+                </div>
+            </div>
+
+            <div class="card" onclick="openApp('sante')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ AMELI 2025</span>
+                    <h3>Ma Santé & Sécu</h3>
+                    <p>Remboursements, IJSS et Mutuelle Solidaire (C2S).</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
+                </div>
+            </div>
+
+            <div class="card" onclick="openApp('divorce')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge">✅ CODE CIVIL</span>
+                    <h3>Mon Divorce</h3>
+                    <p>Pension alimentaire, garde d'enfants et procédure de séparation.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
+                </div>
+            </div>
+
             <div class="card" onclick="openApp('autonomie')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
                 </div>
-                <div class="card-content"><span class="badge">APA / SENIOR</span>
+                <div class="card-content">
+                    <span class="badge">✅ APA / SENIOR</span>
                     <h3>Senior & Autonomie</h3>
-                    <p>Calcul de droits, ASPA et dépendance.</p>
+                    <p>Calcul de droits, ASPA et gestion de l'autonomie.</p>
+                    <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-            <div class="card" style="opacity: 0.5; cursor: not-allowed;">
+
+            <div class="card" style="opacity: 0.6; cursor: not-allowed; filter: grayscale(1);">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
                 </div>
-                <div class="card-content"><span class="badge" style="background:#f1f5f9; color: #64748b;">EN
+                <div class="card-content">
+                    <span class="badge" style="background:#f3f4f6; color: #6b7280; border: 1px solid #e5e7eb;">🚧 EN
                         ATTENTE</span>
                     <h3>Ma Retraite</h3>
-                    <p>En pause législative.</p>
+                    <p>L'expert est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.</p>
+                    <div class="en-savoir-plus" style="color: #9ca3af;">Indisponible <span>+</span></div>
                 </div>
             </div>
         </div>
