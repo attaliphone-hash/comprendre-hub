@@ -2,44 +2,60 @@
 <html lang="fr">
 
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZLSE04DEB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-EZLSE04DEB');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Comprendre Mes Droits</title>
+    <title>Comprendre Mes Droits - Le Portail Citoyen</title>
+    <link rel="icon" href="favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --card-bg: #ffffff;
             --primary: #2563eb;
             --header-h-desktop: 110px;
+            --header-h-mobile: 70px;
         }
 
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Inter', sans-serif;
-            background: var(--bg-color);
-            overflow: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            overflow: hidden;
         }
 
         header {
             background: white;
-            height: var(--header-h-desktop);
+            padding: 0 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2rem;
             border-bottom: 1px solid #e2e8f0;
-            position: fixed;
-            width: 100%;
-            top: 0;
+            height: var(--header-h-desktop);
             z-index: 9999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             box-sizing: border-box;
         }
 
         .logo-img {
-            height: 80px;
+            height: 100px;
+            width: auto;
+            display: block;
         }
 
         #home-view {
@@ -50,33 +66,60 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .hero-section {
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
+            padding-bottom: 60px;
         }
 
         .card {
-            background: white;
-            border: 1px solid #e2e8f0;
+            background: var(--card-bg);
             border-radius: 12px;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: 0.2s;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 320px;
             position: relative;
+            transition: transform 0.2s;
+            cursor: pointer;
         }
 
         .card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             border-color: var(--primary);
         }
 
-        .card h3 {
-            margin-top: 0;
+        .card-image {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .badge {
@@ -86,75 +129,124 @@
             border-radius: 4px;
             background: #dcfce7;
             color: #064e3b;
+            margin-bottom: 10px;
+            align-self: flex-start;
         }
 
         #app-view {
             display: none;
             position: fixed;
             top: var(--header-h-desktop);
+            left: 0;
             width: 100%;
             height: calc(100% - var(--header-h-desktop));
+            z-index: 1000;
+            background: white;
         }
 
         iframe {
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
         }
 
-        .btn-back {
-            padding: 10px 20px;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
+        @media (max-width: 600px) {
+            header {
+                height: var(--header-h-mobile) !important;
+                padding: 0 1rem !important;
+            }
+
+            .logo-img {
+                height: 50px !important;
+            }
+
+            #home-view {
+                padding-top: calc(var(--header-h-mobile) + 1rem) !important;
+            }
+
+            #app-view {
+                top: var(--header-h-mobile) !important;
+                height: calc(100dvh - var(--header-h-mobile)) !important;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <img src="logo_new.png" class="logo-img" onclick="goHome()">
-        <button id="back-btn" class="btn-back" style="display:none" onclick="goHome()">← Retour</button>
+        <a href="#" onclick="goHome(event)"><img src="logo_new.png" alt="Logo" class="logo-img"></a>
+        <button id="back-btn"
+            style="display:none; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; font-weight: 600; cursor: pointer;"
+            onclick="goHome(event)">← Retour</button>
     </header>
 
     <div id="home-view">
-        <div style="text-align:center; max-width:800px; margin-bottom:40px;">
-            <h1>Comprendre simplement vos droits</h1>
-            <p>Sélectionnez un expert pour obtenir des réponses fiables basées sur les sources officielles.</p>
+        <div class="hero-section">
+            <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
+            <p style="color: #000000; line-height: 1.6; font-size: 1.1rem; font-weight: 600;">Ne perdez plus de temps à
+                chercher des réponses éparpillées sur Internet.</p>
+            <p style="color: #4b5563; font-size: 0.9rem;">Sélectionnez votre expert ci-dessous :</p>
         </div>
+
         <div class="cards-container">
             <div class="card" onclick="openApp('paie')">
-                <span class="badge">URSSAF 2026</span>
-                <h3>Ma Paie Expliquée</h3>
-                <p>Décodez chaque ligne de votre bulletin de salaire.</p>
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content"><span class="badge">URSSAF 2026</span>
+                    <h3>Ma Paie Expliquée</h3>
+                    <p>Décodez chaque ligne de votre bulletin.</p>
+                </div>
             </div>
             <div class="card" onclick="openApp('impots')">
-                <span class="badge">DGFiP 2026</span>
-                <h3>Mes Impôts 2026</h3>
-                <p>Calculs de parts, avis d'imposition et crédits d'impôts.</p>
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content"><span class="badge">DGFiP 2026</span>
+                    <h3>Mes Impôts 2026</h3>
+                    <p>Avis d'imposition et calculs de parts.</p>
+                </div>
+            </div>
+            <div class="card" onclick="openApp('caf')">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content"><span class="badge">CAF 2026</span>
+                    <h3>Mes Aides Sociales</h3>
+                    <p>RSA, Prime d'Activité et APL.</p>
+                </div>
             </div>
             <div class="card" onclick="openApp('autonomie')">
-                <span class="badge">APA / SENIOR</span>
-                <h3>Senior & Autonomie</h3>
-                <p>Aides au maintien à domicile, ASPA et dépendance.</p>
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content"><span class="badge">APA / SENIOR</span>
+                    <h3>Senior & Autonomie</h3>
+                    <p>Calcul de droits, ASPA et dépendance.</p>
+                </div>
             </div>
-            <div class="card" style="opacity:0.5; cursor:not-allowed;">
-                <span class="badge" style="background:#f1f5f9; color: #64748b;">EN ATTENTE</span>
-                <h3>Ma Retraite</h3>
-                <p>En attente des nouvelles directives législatives.</p>
+            <div class="card" style="opacity: 0.5; cursor: not-allowed;">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content"><span class="badge" style="background:#f1f5f9; color: #64748b;">EN
+                        ATTENTE</span>
+                    <h3>Ma Retraite</h3>
+                    <p>En pause législative.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="app-view">
-        <iframe id="app-frame" src=""></iframe>
-    </div>
+    <div id="app-view"><iframe id="app-frame" src=""></iframe></div>
 
     <script>
         const URL_APP = 'https://assistant-citoyen-681407952894.europe-west1.run.app';
-
         function openApp(cat) {
             window.location.hash = cat;
             document.getElementById('home-view').style.display = 'none';
@@ -162,18 +254,8 @@
             document.getElementById('back-btn').style.display = 'block';
             document.getElementById('app-frame').src = `${URL_APP}/?cat=${cat}&embed=true`;
         }
-
-        function goHome() {
-            window.location.hash = '';
-            document.getElementById('home-view').style.display = 'flex';
-            document.getElementById('app-view').style.display = 'none';
-            document.getElementById('back-btn').style.display = 'none';
-            document.getElementById('app-frame').src = '';
-        }
-
-        window.addEventListener('hashchange', () => {
-            if (!window.location.hash) goHome();
-        });
+        function goHome(e) { if (e) e.preventDefault(); window.location.hash = ""; document.getElementById('home-view').style.display = 'flex'; document.getElementById('app-view').style.display = 'none'; document.getElementById('back-btn').style.display = 'none'; document.getElementById('app-frame').src = ""; }
+        window.addEventListener('hashchange', () => { if (!window.location.hash) goHome(); });
     </script>
 </body>
 
