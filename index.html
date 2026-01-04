@@ -2,141 +2,81 @@
 <html lang="fr">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZLSE04DEB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-EZLSE04DEB');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Comprendre Mes Droits - Le Portail Citoyen</title>
-
-    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Comprendre Mes Droits</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --bg-color: #f8fafc;
-            --text-main: #1e293b;
-            --text-soft: #000000;
-            --card-bg: #ffffff;
             --primary: #2563eb;
             --header-h-desktop: 110px;
-            --header-h-mobile: 70px;
         }
 
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            height: 100vh;
+            background: var(--bg-color);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            height: 100vh;
         }
 
-        /* --- HEADER FIXE POUR TOUT LE MONDE --- */
         header {
             background: white;
-            padding: 0 1.5rem;
+            height: var(--header-h-desktop);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 2rem;
             border-bottom: 1px solid #e2e8f0;
-            height: var(--header-h-desktop);
-            z-index: 9999;
-            /* Priorité maximale */
             position: fixed;
+            width: 100%;
             top: 0;
-            left: 0;
-            right: 0;
+            z-index: 9999;
             box-sizing: border-box;
         }
 
         .logo-img {
-            height: 100px;
-            width: auto;
-            display: block;
+            height: 80px;
         }
 
-        /* --- VUE ACCUEIL --- */
         #home-view {
             flex: 1;
             overflow-y: auto;
             padding: 2rem;
             padding-top: calc(var(--header-h-desktop) + 2rem);
-            /* Laisse la place au header fixe */
             display: flex;
             flex-direction: column;
             align-items: center;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .hero-section {
-            text-align: center;
-            max-width: 900px;
-            margin-bottom: 40px;
-        }
-
-        .hero-section h1 {
-            font-size: 2.5rem;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 20px;
         }
 
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             width: 100%;
-            max-width: 1400px;
-            padding-bottom: 60px;
+            max-width: 1200px;
         }
 
         .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
+            background: white;
             border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            min-height: 320px;
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: 0.2s;
             position: relative;
-            transition: transform 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: var(--primary);
         }
 
-        .card-image {
-            height: 150px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-content {
-            padding: 1.2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-main-link::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
+        .card h3 {
+            margin-top: 0;
         }
 
         .badge {
@@ -146,213 +86,64 @@
             border-radius: 4px;
             background: #dcfce7;
             color: #064e3b;
-            margin-bottom: 10px;
-            align-self: flex-start;
         }
 
-        /* --- VUE APPLICATION --- */
         #app-view {
             display: none;
             position: fixed;
             top: var(--header-h-desktop);
-            left: 0;
             width: 100%;
             height: calc(100% - var(--header-h-desktop));
-            z-index: 1000;
-            background: white;
         }
 
         iframe {
             width: 100%;
             height: 100%;
             border: none;
-            display: block;
         }
 
-        /* --- AJUSTEMENTS MOBILES STRICTS --- */
-        @media (max-width: 600px) {
-            header {
-                height: var(--header-h-mobile) !important;
-                padding: 0 1rem !important;
-            }
-
-            .logo-img {
-                height: 50px !important;
-            }
-
-            #home-view {
-                padding-top: calc(var(--header-h-mobile) + 1rem) !important;
-            }
-
-            #app-view {
-                top: var(--header-h-mobile) !important;
-                height: calc(100dvh - var(--header-h-mobile)) !important;
-            }
-
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
+        .btn-back {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="#" onclick="goHome(event)">
-            <img src="logo_new.png" alt="Logo" class="logo-img">
-        </a>
-        <button id="back-btn"
-            style="display:none; padding: 8px 12px; border-radius: 6px; border: 1px solid #e2e8f0; background: white; font-weight: 600; cursor: pointer; font-size: 14px;"
-            onclick="goHome(event)">
-            ← Retour
-        </button>
+        <img src="logo_new.png" class="logo-img" onclick="goHome()">
+        <button id="back-btn" class="btn-back" style="display:none" onclick="goHome()">← Retour</button>
     </header>
 
     <div id="home-view">
-        <div class="hero-section">
-            <h1>Comprendre simplement vos droits dans les situations du quotidien</h1>
-            <p style="color: #000000; line-height: 1.6; font-size: 1.1rem; font-weight: 600;">
-                Ne perdez plus de temps à chercher des réponses éparpillées sur Internet. Ici, vous trouverez toutes les
-                réponses administratives à vos questions à chaque étape de votre vie.
-            </p>
-            <p style="color: #4b5563; font-size: 0.9rem;">
-                Nos agents IA analysent votre situation et fournissent des réponses fiables basées uniquement sur des
-                <strong>sources officielles</strong>.
-            </p>
-            <p style="margin-top: 30px; font-weight: 800; color: var(--primary);">👇 Sélectionnez votre expert
-                ci-dessous :</p>
+        <div style="text-align:center; max-width:800px; margin-bottom:40px;">
+            <h1>Comprendre simplement vos droits</h1>
+            <p>Sélectionnez un expert pour obtenir des réponses fiables basées sur les sources officielles.</p>
         </div>
-
         <div class="cards-container">
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ URSSAF 2025</span>
-                    <h3><a href="#paie" class="card-main-link" style="text-decoration:none; color:inherit;">Ma Paie
-                            Expliquée</a></h3>
-                    <p>Décodez chaque ligne de votre bulletin : brut, net et cotisations.</p>
-                </div>
+            <div class="card" onclick="openApp('paie')">
+                <span class="badge">URSSAF 2026</span>
+                <h3>Ma Paie Expliquée</h3>
+                <p>Décodez chaque ligne de votre bulletin de salaire.</p>
             </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ DGFiP 2025</span>
-                    <h3><a href="#impots" class="card-main-link" style="text-decoration:none; color:inherit;">Mes Impôts
-                            2025</a></h3>
-                    <p>Décryptez votre avis d'imposition et calculez vos parts fiscales.</p>
-                </div>
+            <div class="card" onclick="openApp('impots')">
+                <span class="badge">DGFiP 2026</span>
+                <h3>Mes Impôts 2026</h3>
+                <p>Calculs de parts, avis d'imposition et crédits d'impôts.</p>
             </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ CAF 2025</span>
-                    <h3><a href="#caf" class="card-main-link" style="text-decoration:none; color:inherit;">Mes Aides
-                            Sociales</a></h3>
-                    <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL.</p>
-                </div>
+            <div class="card" onclick="openApp('autonomie')">
+                <span class="badge">APA / SENIOR</span>
+                <h3>Senior & Autonomie</h3>
+                <p>Aides au maintien à domicile, ASPA et dépendance.</p>
             </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ FRANCE TRAVAIL</span>
-                    <h3><a href="#chomage" class="card-main-link" style="text-decoration:none; color:inherit;">Mon
-                            Chômage</a></h3>
-                    <p>Comprenez le calcul de votre ARE et vos droits au chômage.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ LOI 89 / ALUR</span>
-                    <h3><a href="#logement" class="card-main-link" style="text-decoration:none; color:inherit;">Mon
-                            Logement</a></h3>
-                    <p>Gestion des cautions, préavis et litiges locatifs.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ CODE MONÉTAIRE</span>
-                    <h3><a href="#banque" class="card-main-link" style="text-decoration:none; color:inherit;">Ma
-                            Banque</a></h3>
-                    <p>Frais abusifs, fraude carte bancaire et droit au compte.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ LOI HAMON</span>
-                    <h3><a href="#conso" class="card-main-link" style="text-decoration:none; color:inherit;">Ma Conso &
-                            Litiges</a></h3>
-                    <p>Achats en ligne, garanties et résiliation de contrats.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ AMELI 2025</span>
-                    <h3><a href="#sante" class="card-main-link" style="text-decoration:none; color:inherit;">Ma Santé &
-                            Sécu</a></h3>
-                    <p>Remboursements, IJSS et Mutuelle Solidaire (C2S).</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ CODE CIVIL</span>
-                    <h3><a href="#divorce" class="card-main-link" style="text-decoration:none; color:inherit;">Mon
-                            Divorce</a></h3>
-                    <p>Pension alimentaire, garde d'enfants et procédures.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge">✅ APA / SENIOR</span>
-                    <h3><a href="#autonomie" class="card-main-link"
-                            style="text-decoration:none; color:inherit;">Retraite & Senior</a></h3>
-                    <p>Calcul de droits, ASPA et gestion de l'autonomie.</p>
-                </div>
-            </div>
-
-            <div class="card" style="opacity: 0.6; filter: grayscale(1);">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge" style="background:#f1f5f9; color: #64748b;">🚧 EN ATTENTE</span>
-                    <h3>Ma Retraite</h3>
-                    <p>L'expert est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.</p>
-                </div>
+            <div class="card" style="opacity:0.5; cursor:not-allowed;">
+                <span class="badge" style="background:#f1f5f9; color: #64748b;">EN ATTENTE</span>
+                <h3>Ma Retraite</h3>
+                <p>En attente des nouvelles directives législatives.</p>
             </div>
         </div>
     </div>
@@ -362,35 +153,27 @@
     </div>
 
     <script>
-        const URL_APP = 'https://assistant-citoyen-46500853340.europe-west1.run.app';
+        const URL_APP = 'https://assistant-citoyen-681407952894.europe-west1.run.app';
 
-        function handleHash() {
-            const h = window.location.hash.slice(1);
-            const valid = ['paie', 'impots', 'caf', 'chomage', 'logement', 'banque', 'conso', 'sante', 'divorce', 'autonomie'];
-
-            if (h && valid.includes(h)) {
-                document.getElementById('home-view').style.display = 'none';
-                document.getElementById('app-view').style.display = 'block';
-                document.getElementById('back-btn').style.display = 'block';
-                const frame = document.getElementById('app-frame');
-                const targetUrl = `${URL_APP}/?cat=${h}&embed=true`;
-                if (frame.src !== targetUrl) frame.src = targetUrl;
-            } else {
-                goHome();
-            }
+        function openApp(cat) {
+            window.location.hash = cat;
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('app-view').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'block';
+            document.getElementById('app-frame').src = `${URL_APP}/?cat=${cat}&embed=true`;
         }
 
-        function goHome(e) {
-            if (e) e.preventDefault();
-            window.location.hash = "";
+        function goHome() {
+            window.location.hash = '';
             document.getElementById('home-view').style.display = 'flex';
             document.getElementById('app-view').style.display = 'none';
             document.getElementById('back-btn').style.display = 'none';
-            document.getElementById('app-frame').src = "";
+            document.getElementById('app-frame').src = '';
         }
 
-        window.addEventListener('hashchange', handleHash);
-        if (window.location.hash) handleHash();
+        window.addEventListener('hashchange', () => {
+            if (!window.location.hash) goHome();
+        });
     </script>
 </body>
 
