@@ -225,6 +225,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('impots')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
@@ -236,6 +237,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('caf')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
@@ -247,6 +249,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('chomage')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
@@ -258,6 +261,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('logement')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80');">
@@ -269,6 +273,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('banque')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80');">
@@ -280,6 +285,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('conso')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80');">
@@ -291,6 +297,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('sante')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80');">
@@ -302,6 +309,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('divorce')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80');">
@@ -313,6 +321,7 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
             <div class="card" onclick="openApp('autonomie')">
                 <div class="card-image"
                     style="background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80');">
@@ -324,6 +333,20 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
+
+            <div class="card" style="opacity: 0.6; cursor: not-allowed; filter: grayscale(1);">
+                <div class="card-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
+                </div>
+                <div class="card-content">
+                    <span class="badge" style="background:#f3f4f6; color: #6b7280; border: 1px solid #e5e7eb;">🚧 EN
+                        ATTENTE</span>
+                    <h3>La Retraite</h3>
+                    <p>L'expert est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.</p>
+                    <div class="en-savoir-plus" style="color: #9ca3af;">Indisponible <span>+</span></div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -348,7 +371,6 @@
             document.getElementById('app-frame').src = "";
         }
 
-        // Gérer le changement d'URL (bouton retour navigateur ou clic logo)
         window.addEventListener('hashchange', () => {
             if (!window.location.hash) {
                 goHome();
@@ -358,7 +380,6 @@
             }
         });
 
-        // Charger l'agent au démarrage si l'URL contient déjà un hash (ex: site.fr/#paie)
         window.addEventListener('load', () => {
             if (window.location.hash) {
                 const cat = window.location.hash.substring(1);
