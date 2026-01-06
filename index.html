@@ -64,7 +64,6 @@
             align-items: center;
         }
 
-        /* WORDING ET TITRE H1 RESTAURÉS */
         .hero-section {
             text-align: center;
             max-width: 900px;
@@ -220,7 +219,7 @@
                     style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=400&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="badge">✅ VÉRIFIÉ URSSAF 2025</span>
+                    <span class="badge">✅ VÉRIFIÉ URSSAF 2026</span>
                     <h3>La Paie Expliquée</h3>
                     <p>Décodez chaque ligne de votre bulletin : brut, net, cotisations sociales.</p>
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
@@ -231,7 +230,7 @@
                     style="background-image: url('https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=400&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="badge">✅ SOURCE DGFIP 2025</span>
+                    <span class="badge">✅ SOURCE DGFIP 2026</span>
                     <h3>Les Impôts</h3>
                     <p>Décryptez votre avis d'imposition et calculez vos parts fiscales.</p>
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
@@ -242,7 +241,7 @@
                     style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="badge">✅ BARÈMES CAF 2025</span>
+                    <span class="badge">✅ BARÈMES CAF 2026</span>
                     <h3>Les Aides Sociales</h3>
                     <p>Estimez vos droits au RSA, à la Prime d'Activité et aux APL.</p>
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
@@ -297,7 +296,7 @@
                     style="background-image: url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80');">
                 </div>
                 <div class="card-content">
-                    <span class="badge">✅ AMELI 2025</span>
+                    <span class="badge">✅ AMELI 2026</span>
                     <h3>La Santé & les règles de la sécurité Sociale</h3>
                     <p>Remboursements, IJSS et Mutuelle Solidaire (C2S).</p>
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
@@ -325,25 +324,14 @@
                     <div class="en-savoir-plus">En savoir plus <span>+</span></div>
                 </div>
             </div>
-            <div class="card" style="opacity: 0.6; cursor: not-allowed; filter: grayscale(1);">
-                <div class="card-image"
-                    style="background-image: url('https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=400&q=80');">
-                </div>
-                <div class="card-content">
-                    <span class="badge" style="background:#f3f4f6; color: #6b7280; border: 1px solid #e5e7eb;">🚧 EN
-                        ATTENTE</span>
-                    <h3>La Retraite</h3>
-                    <p>L'expert est en pause en attendant que l'Assemblée Nationale stabilise les nouvelles lois.</p>
-                    <div class="en-savoir-plus" style="color: #9ca3af;">Indisponible <span>+</span></div>
-                </div>
-            </div>
         </div>
     </div>
 
     <div id="app-view"><iframe id="app-frame" src=""></iframe></div>
 
     <script>
-        const URL_APP = 'https://assistant-citoyen-681407952894.europe-west1.run.app';
+        const URL_APP = 'https://assistant-citoyen-2026-46500853340.europe-west1.run.app';
+
         function openApp(cat) {
             window.location.hash = cat;
             document.getElementById('home-view').style.display = 'none';
@@ -351,6 +339,7 @@
             document.getElementById('back-btn').style.display = 'block';
             document.getElementById('app-frame').src = `${URL_APP}/?cat=${cat}&embed=true`;
         }
+
         function goHome() {
             window.location.hash = "";
             document.getElementById('home-view').style.display = 'flex';
@@ -358,7 +347,24 @@
             document.getElementById('back-btn').style.display = 'none';
             document.getElementById('app-frame').src = "";
         }
-        window.addEventListener('hashchange', () => { if (!window.location.hash) goHome(); });
+
+        // Gérer le changement d'URL (bouton retour navigateur ou clic logo)
+        window.addEventListener('hashchange', () => {
+            if (!window.location.hash) {
+                goHome();
+            } else {
+                const cat = window.location.hash.substring(1);
+                openApp(cat);
+            }
+        });
+
+        // Charger l'agent au démarrage si l'URL contient déjà un hash (ex: site.fr/#paie)
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                const cat = window.location.hash.substring(1);
+                openApp(cat);
+            }
+        });
     </script>
 </body>
 
