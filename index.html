@@ -205,6 +205,81 @@
             height: 100%;
             border: none;
         }
+
+        /* --- AJOUT FOOTER & MODALES --- */
+        .site-footer {
+            margin-top: auto;
+            padding: 40px 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            width: 100%;
+            border-top: 1px solid #e2e8f0;
+            background: #fff;
+        }
+
+        .site-footer a {
+            color: #64748b;
+            text-decoration: none;
+            margin: 0 10px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .site-footer a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        .modal-box h2 {
+            color: #1e293b;
+            margin-top: 0;
+        }
+
+        .modal-box p,
+        .modal-box ul {
+            color: #475569;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .modal-box strong {
+            color: #1e293b;
+        }
     </style>
 </head>
 
@@ -360,9 +435,48 @@
             </div>
 
         </div>
+
+        <footer class="site-footer">
+            <p>© 2026 Comprendre Mes Droits - Assistant Citoyen IA</p>
+            <p>
+                <a onclick="openModal('mentions')">Mentions Légales</a> •
+                <a onclick="openModal('privacy')">Données Personnelles</a>
+            </p>
+        </footer>
+
     </div>
 
     <div id="app-view"><iframe id="app-frame" src=""></iframe></div>
+
+    <div id="modal-mentions" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-box">
+            <span class="modal-close" onclick="closeAllModals()">&times;</span>
+            <h2>Mentions Légales</h2>
+            <p><strong>1. ÉDITEUR</strong><br>
+                Le site <em>comprendre-mes-droits.fr</em> est édité par <strong>Sylvain ATTAL EI (BUSINESS AGENT
+                    AI)</strong>.<br>
+                SIREN : 948 253 711 | Contact : sylvain.attal@businessagent-ai.com</p>
+            <p><strong>2. HÉBERGEMENT</strong><br>
+                Google Cloud EMEA Limited (Irlande).</p>
+            <p><strong>3. RESPONSABILITÉ IA</strong><br>
+                Ce site utilise une IA générative. Les réponses sont fournies à titre indicatif et ne remplacent pas une
+                consultation juridique professionnelle.</p>
+        </div>
+    </div>
+
+    <div id="modal-privacy" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-box">
+            <span class="modal-close" onclick="closeAllModals()">&times;</span>
+            <h2>Politique de Confidentialité</h2>
+            <p><strong>PROTECTION DES DONNÉES (RGPD)</strong></p>
+            <ul>
+                <li><strong>Cookies :</strong> Uniquement techniques (fonctionnement du site).</li>
+                <li><strong>Publicité :</strong> Aucun traceur publicitaire. Pas de revente de données.</li>
+                <li><strong>Conversations :</strong> Les échanges sont traités en temps réel pour vous répondre et ne
+                    sont pas conservés à des fins d'identification.</li>
+            </ul>
+        </div>
+    </div>
 
     <script>
         const URL_APP = 'https://assistant-citoyen-2026-46500853340.europe-west1.run.app';
@@ -398,6 +512,20 @@
                 openApp(cat);
             }
         });
+
+        /* SCRIPTS MODALES */
+        function openModal(type) {
+            if (type === 'mentions') document.getElementById('modal-mentions').style.display = 'flex';
+            if (type === 'privacy') document.getElementById('modal-privacy').style.display = 'flex';
+        }
+        function closeAllModals() {
+            document.querySelectorAll('.modal-overlay').forEach(el => el.style.display = 'none');
+        }
+        function closeModal(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                closeAllModals();
+            }
+        }
     </script>
 </body>
 
